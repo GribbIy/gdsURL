@@ -3,45 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maintenance Page</title>
+    <title>Clicker Game</title>
     <style>
         body {
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, blue 0%, black 50%, darkgreen 100%);
-            color: white;
+            background-color: #f0f0f0;
+        }
+        .container {
             text-align: center;
         }
-        h1 {
-            font-size: 3em;
-        }
-        .button-container {
-            position: absolute;
-            bottom: 50px;
-        }
-        .button-container button {
-            font-size: 1em;
+        .button {
+            font-size: 2em;
             padding: 10px 20px;
-            color: white;
-            background-color: black;
-            border: 2px solid white;
-            border-radius: 5px;
+            margin-top: 20px;
             cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
-        .button-container button:hover {
-            background-color: darkgreen;
+        .button:hover {
+            background-color: #45a049;
+        }
+        .count {
+            font-size: 3em;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <h1>Sorry, This page is going under maintenance!</h1>
-    <div class="button-container">
-        <button onclick="window.location.href='/'">Go back</button>
+    <div class="container">
+        <h1>Clicker Game</h1>
+        <button class="button" onclick="incrementCount()">Click me!</button>
+        <div class="count" id="count">0</div>
     </div>
+
+    <script>
+        let count = 0;
+
+        function incrementCount() {
+            count++;
+            document.getElementById('count').innerText = count;
+        }
+    </script>
 </body>
 </html>
