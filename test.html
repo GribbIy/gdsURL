@@ -110,7 +110,7 @@
                     'Content-Type': 'application/json',
                     'bypass-tunnel-reminder': 'true'
                 },
-                body: JSON.stringify({ name, score: count })
+                body: JSON.stringify({ name: name, score: count })
             })
             .then(response => response.text())
             .then(() => {
