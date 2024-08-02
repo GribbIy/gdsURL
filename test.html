@@ -72,14 +72,6 @@
             margin-top: 20px;
             font-size: 1.5em;
         }
-        .dev-panel {
-            margin-top: 20px;
-        }
-        .dev-input {
-            width: 100%;
-            padding: 5px;
-            margin-top: 5px;
-        }
     </style>
 </head>
 <body>
@@ -94,29 +86,10 @@
             <div class="count" id="count">0</div>
             <input type="text" class="input-field" id="name" placeholder="Enter your name">
             <button class="submit-button" onclick="saveScore()">Submit Score</button>
-
-            <!-- Dev Panel -->
-            <div class="dev-panel" id="dev-panel" style="display: none;">
-                <h3>Dev Panel</h3>
-                <input type="number" class="dev-input" id="dev-index" placeholder="Index">
-                <input type="text" class="dev-input" id="dev-name" placeholder="Name">
-                <input type="number" class="dev-input" id="dev-score" placeholder="Score">
-                <button class="button" onclick="updateScore()">Update Score</button>
-                <button class="button" onclick="deleteScore()">Delete Score</button>
-            </div>
         </div>
     </div>
 
     <script>
-        const isDev = false; // This will be replaced by the server
-
-        document.addEventListener('DOMContentLoaded', () => {
-            if (isDev) {
-                document.getElementById('dev-panel').style.display = 'block';
-            }
-            loadScores();
-        });
-
         let count = 0;
 
         function incrementCount() {
@@ -159,48 +132,12 @@
             .then(response => response.json())
             .then(data => {
                 const scoresDiv = document.getElementById('scores');
-                scoresDiv.innerHTML = '<ol>' + data.map((score, index) => `<li>${score.name}: ${score.score} <button onclick="editScore(${index})">Edit</button></li>`).join('') + '</ol>';
+                scoresDiv.innerHTML = '<ol>' + data.map(score => `<li>${score.name}: ${score.score}</li>`).join('') + '</ol>';
             })
             .catch(error => console.error('Error:', error));
         }
 
-        function updateScore() {
-            const index = document.getElementById('dev-index').value;
-            const name = document.getElementById('dev-name').value;
-            const score = document.getElementById('dev-score').value;
-
-            fetch('https://scores-gdsgames.loca.lt/scores', {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'bypass-tunnel-reminder': 'true'
-                },
-                body: JSON.stringify({ index: parseInt(index), name, score: parseInt(score) })
-            })
-            .then(response => response.text())
-            .then(() => {
-                loadScores();
-            })
-            .catch(error => console.error('Error:', error));
-        }
-
-        function deleteScore() {
-            const index = document.getElementById('dev-index').value;
-
-            fetch('https://scores-gdsgames.loca.lt/scores', {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'bypass-tunnel-reminder': 'true'
-                },
-                body: JSON.stringify({ index: parseInt(index) })
-            })
-            .then(response => response.text())
-            .then(() => {
-                loadScores();
-            })
-            .catch(error => console.error('Error:', error));
-        }
+        document.addEventListener('DOMContentLoaded', loadScores);
     </script>
 </body>
 </html>
