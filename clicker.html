@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clicker Game</title>
+    <title>Maintenance Page</title>
     <style>
         body {
             display: flex;
@@ -12,132 +12,15 @@
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-        }
-        .container {
-            display: flex;
-            width: 80%;
-            height: 80%;
-        }
-        .game {
-            flex: 1;
-            text-align: center;
-        }
-        .leaderboard {
-            flex: 1;
-            background-color: white;
-            border-right: 1px solid #ccc;
-            padding: 20px;
-            overflow-y: auto;
-        }
-        .button {
-            font-size: 2em;
-            padding: 10px 20px;
-            margin-top: 20px;
-            cursor: pointer;
-            background-color: #4CAF50;
+            background: linear-gradient(to bottom, black 70%, darkgreen 100%);
             color: white;
-            border: none;
-            border-radius: 5px;
-            transition: background-color 0.3s, transform 0.1s;
         }
-        .button:active {
-            transform: scale(0.95);
-        }
-        .count {
+        h1 {
             font-size: 3em;
-            margin-top: 20px;
-        }
-        .input-field {
-            font-size: 1.5em;
-            margin-top: 20px;
-            padding: 10px;
-            width: 80%;
-        }
-        .submit-button {
-            font-size: 1.5em;
-            padding: 10px 20px;
-            margin-top: 20px;
-            cursor: pointer;
-            background-color: #008CBA;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            transition: background-color 0.3s, transform 0.1s;
-        }
-        .submit-button:active {
-            transform: scale(0.95);
-        }
-        .scores {
-            margin-top: 20px;
-            font-size: 1.5em;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="leaderboard">
-            <h2>Leaderboard</h2>
-            <div class="scores" id="scores"></div>
-        </div>
-        <div class="game">
-            <h1>Clicker Game</h1>
-            <button class="button" onclick="incrementCount()">Click me!</button>
-            <div class="count" id="count">0</div>
-            <input type="text" class="input-field" id="name" placeholder="Enter your name">
-            <button class="submit-button" onclick="saveScore()">Submit Score</button>
-        </div>
-    </div>
-
-    <script>
-        let count = 0;
-
-        function incrementCount() {
-            count++;
-            document.getElementById('count').innerText = count;
-        }
-
-        function saveScore() {
-            const name = document.getElementById('name').value;
-            if (!name) {
-                alert('Please enter your name');
-                return;
-            }
-
-            fetch('https://scores-gdsgames.loca.lt/scores', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'bypass-tunnel-reminder': 'true'
-                },
-                body: JSON.stringify({ name: name, score: count })
-            })
-            .then(response => response.text())
-            .then(() => {
-                count = 0;
-                document.getElementById('count').innerText = count;
-                document.getElementById('name').value = '';
-                loadScores();
-            })
-            .catch(error => console.error('Error:', error));
-        }
-
-        function loadScores() {
-            fetch('https://scores-gdsgames.loca.lt/scores', {
-                method: 'GET',
-                headers: {
-                    'bypass-tunnel-reminder': 'true'
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                const scoresDiv = document.getElementById('scores');
-                scoresDiv.innerHTML = '<ol>' + data.map(score => `<li>${score.name}: ${score.score}</li>`).join('') + '</ol>';
-            })
-            .catch(error => console.error('Error:', error));
-        }
-
-        document.addEventListener('DOMContentLoaded', loadScores);
-    </script>
+    <h1>Sorry, This page is going under maintenance!</h1>
 </body>
 </html>
