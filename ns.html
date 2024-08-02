@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeMirror JSON Example</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+    <style>
+        .CodeMirror {
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <textarea id="json-editor">
+{
+    "WWW": "https://gdsgames.net",
+    "MC": "https://mc.gdsgames.net"
+}
+    </textarea>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/javascript/javascript.min.js"></script>
+    <script>
+        const editor = CodeMirror.fromTextArea(document.getElementById("json-editor"), {
+            mode: {name: "javascript", json: true},
+            lineNumbers: true,
+            theme: "default",
+            readOnly: true
+        });
+    </script>
+</body>
+</html>
