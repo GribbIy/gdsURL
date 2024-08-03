@@ -71,6 +71,7 @@
 
     <script>
         let count = 0;
+        let lastSubmitTime = 0;
 
         function incrementCount() {
             count++;
@@ -85,13 +86,7 @@
         function submitScore() {
             const username = document.getElementById('username').value;
             const currentTime = Date.now();
-            const lastSubmitTime = localStorage.getItem('lastSubmitTime');
-
-            if (lastSubmitTime && currentTime - lastSubmitTime < 300000) { // 300000 ms = 5 minutes
-                alert("You can only submit your score every 5 minutes.");
-                return;
-            }
-
+            
             if (!isValidUsername(username)) {
                 alert("Invalid username. Only alphanumeric characters and underscores are allowed.");
                 return;
@@ -110,22 +105,22 @@
                 score: score
             });
 
-            fetch('https://discord.com/api/webhooks/1269236968760279103/R4OzfBNs7-4nLap6bayO6K5V_rMzXw8uasLs7xogwCOAtc838whmbUy32lS_6_FvD-78', {
+            fetch('https://scores-gdsgames.loca.lt/submit-score', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'bypass-tunnel-reminder': 'true'
                 },
                 body: payload
             })
-            .then(response => {
-                if (response.ok) {
-                    alert("Score submitted successfully!");
-                    localStorage.setItem('lastSubmitTime', currentTime);
+            .then(response => response.text())
+            .then(message => {
+                alert(message);
+                if (message === 'Score submitted successfully!') {
+                    lastSubmitTime = currentTime;
                     count = 0; // Reset count after submission
                     document.getElementById('count').innerText = count;
                     document.getElementById('username').value = ""; // Clear username input
-                } else {
-                    alert("Failed to submit score. Please try again.");
                 }
             })
             .catch(error => {
