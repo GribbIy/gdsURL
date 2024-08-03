@@ -7,6 +7,7 @@
     <style>
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -16,6 +17,7 @@
         }
         .container {
             text-align: center;
+            margin-bottom: 20px;
         }
         .button {
             font-size: 2em;
@@ -35,6 +37,24 @@
             font-size: 3em;
             margin-top: 20px;
         }
+        .form-container {
+            text-align: center;
+        }
+        .form-container input {
+            padding: 10px;
+            font-size: 1em;
+            margin-top: 20px;
+        }
+        .form-container button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -43,13 +63,74 @@
         <button class="button" onclick="incrementCount()">Click me!</button>
         <div class="count" id="count">0</div>
     </div>
+    
+    <div class="form-container">
+        <input type="text" id="username" placeholder="Enter your name" maxlength="20">
+        <button onclick="submitScore()">Submit Score</button>
+    </div>
 
     <script>
         let count = 0;
+        let lastSubmitTime = 0;
 
         function incrementCount() {
             count++;
             document.getElementById('count').innerText = count;
+        }
+
+        function isValidUsername(username) {
+            const regex = /^[a-zA-Z0-9_]+$/;
+            return regex.test(username);
+        }
+
+        function submitScore() {
+            const username = document.getElementById('username').value;
+            const currentTime = Date.now();
+            
+            if (currentTime - lastSubmitTime < 300000) {
+                alert("You can only submit your score every 5 minutes.");
+                return;
+            }
+
+            if (!isValidUsername(username)) {
+                alert("Invalid username. Only alphanumeric characters and underscores are allowed.");
+                return;
+            }
+
+            const score = count;
+
+            if (typeof score !== 'number' || score < 0) {
+                alert("Invalid score detected.");
+                return;
+            }
+
+            const payload = JSON.stringify({
+                username: username,
+                score: score
+            });
+
+            fetch('https://discord.com/api/webhooks/1269236968760279103/R4OzfBNs7-4nLap6bayO6K5V_rMzXw8uasLs7xogwCOAtc838whmbUy32lS_6_FvD-78', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: payload
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert("Score submitted successfully!");
+                    lastSubmitTime = currentTime;
+                    count = 0;
+                    document.getElementById('count').innerText = count;
+                    document.getElementById('username').value = "";
+                } else {
+                    alert("Failed to submit score. Please try again.");
+                }
+            })
+            .catch(error => {
+                console.error("Error submitting score:", error);
+                alert("Error submitting score. Please try again.");
+            });
         }
     </script>
 </body>
