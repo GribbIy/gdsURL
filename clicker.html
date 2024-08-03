@@ -82,12 +82,27 @@
             return regex.test(username);
         }
 
+        function getUserId() {
+            let userId = localStorage.getItem('userId');
+            if (!userId) {
+                userId = generateUniqueId();
+                localStorage.setItem('userId', userId);
+            }
+            return userId;
+        }
+
+        function generateUniqueId() {
+            return 'user-' + Math.random().toString(36).substr(2, 9);
+        }
+
         function getLastSubmitTime() {
-            return localStorage.getItem('lastSubmitTime');
+            const userId = getUserId();
+            return localStorage.getItem(`lastSubmitTime-${userId}`);
         }
 
         function setLastSubmitTime(time) {
-            localStorage.setItem('lastSubmitTime', time);
+            const userId = getUserId();
+            localStorage.setItem(`lastSubmitTime-${userId}`, time);
         }
 
         function submitScore() {
@@ -115,7 +130,8 @@
 
             const payload = JSON.stringify({
                 username: username,
-                score: score
+                score: score,
+                userId: getUserId()
             });
 
             fetch('https://scores-gdsgames.loca.lt/submit-score', {
