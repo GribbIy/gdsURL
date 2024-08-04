@@ -8,11 +8,34 @@
         body {
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
+        }
+        .leaderboard-container {
+            width: 400px;
+            margin-right: 40px;
+        }
+        .leaderboard {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            height: 80vh;
+            overflow-y: auto;
+        }
+        .leaderboard h2 {
+            text-align: center;
+        }
+        .leaderboard ul {
+            list-style: none;
+            padding: 0;
+        }
+        .leaderboard li {
+            padding: 5px 0;
+            border-bottom: 1px solid #ccc;
         }
         .container {
             text-align: center;
@@ -60,36 +83,19 @@
             margin-top: 20px;
             color: red;
         }
-        .leaderboard {
-            width: 300px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 10px;
-            margin-top: 20px;
-        }
-        .leaderboard h2 {
-            text-align: center;
-        }
-        .leaderboard ul {
-            list-style: none;
-            padding: 0;
-        }
-        .leaderboard li {
-            padding: 5px 0;
-            border-bottom: 1px solid #ccc;
-        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="leaderboard-container">
         <div class="leaderboard">
             <h2>Leaderboard</h2>
             <ul id="leaderboard-list">
                 <!-- Leaderboard entries will be added here -->
             </ul>
         </div>
+    </div>
 
+    <div class="container">
         <h1>Clicker Game</h1>
         <button class="button" onclick="incrementCount()">Click me!</button>
         <div class="count" id="count">0</div>
