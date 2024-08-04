@@ -17,29 +17,19 @@
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        pre {
+            overflow: auto;
             white-space: pre-wrap;
             word-wrap: break-word;
         }
     </style>
 </head>
 <body>
-    <div class="json-container">
-        <h2>JSON Data</h2>
-        <pre>
-[{
-    "accountId": 1,
-    "IsDeveloper": true,
-    "username": "Player",
-    "displayName": "Player",
-    "profileImage": "Profile.png",
-    "bannerImage": "",
-    "isJunior": false,
-    "platforms": 1,
-    "createdAt": "2024-08-04T17:25:24.0377755-04:00"
-}]
-        </pre>
-    </div>
+    <div class="json-container" id="jsonData"></div>
+
+    <script>
+        const jsonData = [{"accountId":1,"IsDeveloper":true,"username":"Player","displayName":"Player","profileImage":"Profile.png","bannerImage":"","isJunior":false,"platforms":1,"createdAt":"2024-08-04T17:25:24.0377755-04:00"}];
+
+        document.getElementById('jsonData').textContent = JSON.stringify(jsonData, null, 4);
+    </script>
 </body>
 </html>
