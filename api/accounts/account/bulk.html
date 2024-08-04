@@ -3,33 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSON Display</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-        }
-        .json-container {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            overflow: auto;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
-    </style>
+    <title>JSON Editor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/javascript/javascript.min.js"></script>
 </head>
 <body>
-    <div class="json-container" id="jsonData"></div>
+    <textarea id="json-editor"></textarea>
 
     <script>
-        const jsonData = [{"accountId":1,"IsDeveloper":true,"username":"Player","displayName":"Player","profileImage":"Profile.png","bannerImage":"","isJunior":false,"platforms":1,"createdAt":"2024-08-04T17:25:24.0377755-04:00"}];
+        const editor = CodeMirror.fromTextArea(document.getElementById('json-editor'), {
+            mode: "application/json",
+            lineNumbers: true,
+            autoCloseBrackets: true,
+            matchBrackets: true
+        });
 
-        document.getElementById('jsonData').textContent = JSON.stringify(jsonData, null, 4);
+        const jsonData = [{
+            "accountId": 1,
+            "IsDeveloper": true,
+            "username": "Player",
+            "displayName": "Player",
+            "profileImage": "Profile.png",
+            "bannerImage": "",
+            "isJunior": false,
+            "platforms": 1,
+            "createdAt": "2024-08-04T17:25:24.0377755-04:00"
+        }];
+
+        editor.setValue(JSON.stringify(jsonData, null, 2));
     </script>
 </body>
 </html>
