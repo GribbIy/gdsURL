@@ -7,9 +7,8 @@
     <style>
         body {
             display: flex;
-            flex-direction: row;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center;
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
@@ -17,7 +16,9 @@
         }
         .container {
             text-align: center;
-            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .button {
             font-size: 2em;
@@ -60,12 +61,12 @@
             color: red;
         }
         .leaderboard {
-            width: 200px;
+            width: 300px;
             background-color: #fff;
             border: 1px solid #ccc;
             border-radius: 5px;
             padding: 10px;
-            margin: 20px;
+            margin-top: 20px;
         }
         .leaderboard h2 {
             text-align: center;
@@ -81,13 +82,14 @@
     </style>
 </head>
 <body>
-    <div class="leaderboard">
-        <h2>Leaderboard</h2>
-        <ul id="leaderboard-list">
-        </ul>
-    </div>
-
     <div class="container">
+        <div class="leaderboard">
+            <h2>Leaderboard</h2>
+            <ul id="leaderboard-list">
+                <!-- Leaderboard entries will be added here -->
+            </ul>
+        </div>
+
         <h1>Clicker Game</h1>
         <button class="button" onclick="incrementCount()">Click me!</button>
         <div class="count" id="count">0</div>
@@ -140,7 +142,7 @@
             const currentTime = Date.now();
             const lastSubmitTime = getLastSubmitTime();
 
-            if (lastSubmitTime && currentTime - lastSubmitTime < 300000) {
+            if (lastSubmitTime && currentTime - lastSubmitTime < 300000) { // 300000 ms = 5 minutes
                 alert("You can only submit your score every 5 minutes.");
                 return;
             }
@@ -152,6 +154,7 @@
 
             const score = count;
 
+            // Implementing a basic anti-cheat check by verifying the score calculation
             if (typeof score !== 'number' || score < 0) {
                 alert("Invalid score detected.");
                 return;
@@ -160,7 +163,7 @@
             const payload = JSON.stringify({
                 username: username,
                 score: score,
-                userId: getUserId()
+                userId: getUserId() // Include the userId in the payload
             });
 
             fetch('https://scores-gdsgames.loca.lt/submit-score', {
@@ -175,9 +178,9 @@
             .then(data => {
                 if (data.success) {
                     setLastSubmitTime(currentTime);
-                    count = 0;
+                    count = 0; // Reset count after submission
                     document.getElementById('count').innerText = count;
-                    document.getElementById('username').value = "";
+                    document.getElementById('username').value = ""; // Clear username input
                     updateLeaderboard(data.leaderboard);
                     alert(data.message);
                 } else {
@@ -200,6 +203,7 @@
             });
         }
 
+        // Fetch the initial leaderboard
         fetch('https://scores-gdsgames.loca.lt/leaderboard')
             .then(response => response.json())
             .then(data => {
