@@ -1,37 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSON Editor</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/javascript/javascript.min.js"></script>
-</head>
-<body>
-    <textarea id="json-editor"></textarea>
-
-    <script>
-        const editor = CodeMirror.fromTextArea(document.getElementById('json-editor'), {
-            mode: "application/json",
-            lineNumbers: true,
-            autoCloseBrackets: true,
-            matchBrackets: true
-        });
-
-        const jsonData = [{
-            "accountId": 1,
-            "IsDeveloper": true,
-            "username": "Player",
-            "displayName": "Player",
-            "profileImage": "Profile.png",
-            "bannerImage": "",
-            "isJunior": false,
-            "platforms": 1,
-            "createdAt": "2024-08-04T17:25:24.0377755-04:00"
-        }];
-
-        editor.setValue(JSON.stringify(jsonData, null, 2));
-    </script>
-</body>
-</html>
+[
+  {
+    "accountId": 1,
+    "IsDeveloper": true,
+    "username": "Player",
+    "displayName": "Player",
+    "profileImage": "Profile.png",
+    "bannerImage": "",
+    "isJunior": false,
+    "platforms": 1,
+    "createdAt": "2024-08-04T17:25:24.0377755-04:00"
+  }
+]
