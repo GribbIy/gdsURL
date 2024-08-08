@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YARN UNIVERSE AVATAR EDITOR BETA 0.0.3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            justify-content: space-between;
+        }
+        header {
+            background-color: #0000ff;
+            color: #ffffff;
+            text-align: center;
+            padding: 1em;
+        }
+        .container {
+            display: flex;
+            flex-grow: 1;
+        }
+        .avatar-items {
+            background-color: #0000ff;
+            color: #ffffff;
+            padding: 1em;
+            width: 20%;
+            overflow-y: auto;
+        }
+        .avatar-items img {
+            width: 100%;
+        }
+        .avatar-items div {
+            margin-bottom: 1em;
+            text-align: center;
+        }
+        .save-button {
+            background-color: #0000ff;
+            color: #ffffff;
+            padding: 1em;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>YARN UNIVERSE AVATAR EDITOR BETA 0.0.3</header>
+    <div class="container">
+        <div class="avatar-items">
+            <p>AVATAR ITEMS</p>
+            <p>---------------</p>
+            <div id="items"></div>
+        </div>
+    </div>
+    <footer class="save-button" onclick="alert('Saving isn\'t available yet')">SAVE AVATAR</footer>
+
+    <script>
+        async function loadAvatarItems() {
+            const response = await fetch('/api/avatar_items');
+            const items = await response.json();
+            const itemsContainer = document.getElementById('items');
+            
+            items.forEach(item => {
+                const itemDiv = document.createElement('div');
+                const itemImage = document.createElement('img');
+                const itemName = document.createElement('p');
+
+                itemImage.src = item.image;
+                itemName.textContent = item.name;
+
+                itemDiv.appendChild(itemImage);
+                itemDiv.appendChild(itemName);
+                itemsContainer.appendChild(itemDiv);
+            });
+        }
+
+        loadAvatarItems();
+    </script>
+</body>
+</html>
