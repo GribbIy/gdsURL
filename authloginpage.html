@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDS Staff Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo img {
+            width: 150px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #dddfe2;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #123d75;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .login-btn:hover {
+            background-color: #201547;
+        }
+        .forgot-password {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .forgot-password a {
+            color: #1877f2;
+            text-decoration: none;
+        }
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+        .create-account {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .create-account a {
+            background-color: #1a1717;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .create-account a:hover {
+            background-color: #1a1717;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="https://gdsgames.net/data/fallback.png" alt="GDS Logo">
+        </div>
+        <div class="input-group">
+            <input type="text" placeholder="Email">
+        </div>
+        <div class="input-group">
+            <input type="password" placeholder="Password">
+        </div>
+        <button class="login-btn">Log In</button>
+        <div class="forgot-password">
+            <a href="#">Forgotten password?</a>
+        </div>
+        <div class="create-account">
+            <a href="#">Create New Account</a>
+        </div>
+    </div>
+</body>
+</html>
