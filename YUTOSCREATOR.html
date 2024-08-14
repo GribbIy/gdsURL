@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yarn Universe Creator Terms Of Service</title>
+    <style>
+        body {
+            background-color: #343541; /* ChatGPT-like background color */
+            color: white; /* Text color for readability */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 2.5em;
+            color: #00A67E; /* Slightly different color for the title */
+        }
+
+        .terms-container {
+            width: 80%;
+            max-width: 800px;
+            padding: 20px;
+            background-color: #282c34; /* Slightly lighter background for contrast */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .terms {
+            font-size: 0.9em;
+            line-height: 1.6em;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>Yarn Universe Creator Terms Of Service</h1>
+    <div class="terms-container">
+        <p class="terms">
+ 1. Intellectual Property
+You retain ownership of any intellectual property rights that you hold in the content you upload. However, by uploading content, you grant GDS the rights of a loyalty free license to use your uploaded content anywhere.
+
+ 2. Moderation and Removal of Content
+GDS reserves the right to review, modify, or remove any content that violates these Terms of Service or for any other reason at our sole discretion. We also reserve the right to suspend or terminate accounts associated with such content.
+
+ 3. Disclaimer of Warranties
+Yarn Universe provides the service on an "as is" and "as available" basis. We do not warrant that the service will be uninterrupted or error-free.
+
+ 4. Limitation of Liability
+In no event shall Yarn Universe be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses, resulting from your use of the service.
+
+ 5. Indemnification
+You agree to indemnify and hold harmless Yarn Universe and its affiliates, officers, agents, and employees from any claim or demand, including reasonable attorneys' fees, arising out of your content, your use of the service, or your violation of these Terms of Service.
+
+ 6. Changes to the Terms of Service
+GDS can modify these Terms of Service at any time. We will notify users of any significant changes by posting the new terms on our website. Your continued use of the service after such changes constitutes your acceptance of the new Terms of Service.
+
+ 7. Contact Information
+If you have any questions about these Terms of Service, please contact us at <#1239992498492018698> or our professional email yarnplanet@outlook.com.
+        </p>
+    </div>
+
+<div class="music-container">
+        <h2>Play Music</h2>
+        <input type="url" id="musicUrl" placeholder="https://gdsgames.net/data/LeftBankTwo.mp3">
+        <button onclick="playMusic()">Play</button>
+        <audio id="audioPlayer" controls></audio>
+    </div>
+
+    <script>
+        function playMusic() {
+            var musicUrl = document.getElementById('musicUrl').value;
+            var audioPlayer = document.getElementById('audioPlayer');
+            audioPlayer.src = musicUrl;
+            audioPlayer.play();
+        }
+    </script>
+</body>
+</html>
