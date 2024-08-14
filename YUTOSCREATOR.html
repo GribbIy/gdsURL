@@ -67,20 +67,6 @@ If you have any questions about these Terms of Service, please contact us at <#1
         </p>
     </div>
 
-<div class="music-container">
-        <h2>Play Music</h2>
-        <input type="url" id="musicUrl" placeholder="https://gdsgames.net/data/LeftBankTwo.mp3">
-        <button onclick="playMusic()">Play</button>
-        <audio id="audioPlayer" controls></audio>
-    </div>
-
-    <script>
-        function playMusic() {
-            var musicUrl = document.getElementById('musicUrl').value;
-            var audioPlayer = document.getElementById('audioPlayer');
-            audioPlayer.src = musicUrl;
-            audioPlayer.play();
-        }
-    </script>
+  <audio id="backgroundMusic" src="your-music-file-url.mp3" autoplay loop></audio>
 </body>
 </html>
