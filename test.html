@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Protected Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 600px; margin: 50px auto; text-align: center; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Protected Content</h1>
+        <form id="passwordForm">
+            <input type="password" id="password" placeholder="Enter Password" required>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="content" class="hidden">
+            <p>Welcome to the protected content!</p>
+        </div>
+        <div id="error" class="hidden">
+            <p>Incorrect password. Please try again.</p>
+        </div>
+    </div>
+
+    <script>
+        const passwordForm = document.getElementById('passwordForm');
+        const content = document.getElementById('content');
+        const error = document.getElementById('error');
+        const correctPassword = ''; // Set password via JavaScript or dynamically
+
+        passwordForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const inputPassword = document.getElementById('password').value;
+
+            if (inputPassword === correctPassword) {
+                content.classList.remove('hidden');
+                error.classList.add('hidden');
+            } else {
+                error.classList.remove('hidden');
+                content.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
