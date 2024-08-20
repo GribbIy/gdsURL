@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Password Generator</title>
+    <script>
+        // Replace this URL with your Discord webhook URL
+        const webhookUrl = 'https://discord.com/api/webhooks/1275461404572254281/T2gfb8zgvPoZt1LlY_qsGQyYJrHhVeKtTcAAtuyvbA1qVQcSCN1H7UM3oWUScl4uhRXi';
+
+        function generatePassword(length) {
+            const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
+            let password = '';
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * charset.length);
+                password += charset[randomIndex];
+            }
+            return password;
+        }
+
+        async function sendPassword() {
+            const password = generatePassword(10);
+            const message = {
+                content: `Here is your random password: ${password}`
+            };
+
+            try {
+                const response = await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(message)
+                });
+
+                if (response.ok) {
+                    alert('Password sent successfully!');
+                } else {
+                    alert('Failed to send password.');
+                }
+            } catch (error) {
+                alert('Error sending password: ' + error.message);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Random Password Generator</h1>
+    <button onclick="sendPassword()">Generate and Send Password</button>
+</body>
+</html>
