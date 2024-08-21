@@ -29,10 +29,16 @@
             margin-bottom: 20px;
         }
         .person img {
-            width: 100%;
-            height: auto;
-            max-width: 200px;
+            width: 118px;
+            height: 118px;
             border-radius: 50%;
+            object-fit: cover;
+        }
+        .person img[alt="RockyRebel"] {
+            width: auto;
+            height: 118px;
+            max-width: 118px;
+            object-fit: contain;
         }
         .person h2 {
             margin: 10px 0;
@@ -44,7 +50,7 @@
             position: absolute;
             bottom: 20px;
             left: 20px;
-            background-color: #006400; /* Dark green */
+            background-color: #006400;
             color: #fff;
             padding: 10px 20px;
             border: none;
