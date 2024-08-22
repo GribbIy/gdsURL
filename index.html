@@ -41,6 +41,7 @@
             font-size: 1.5vw;
             color: white;
             text-decoration: none;
+            cursor: pointer;
         }
         .discord-link:hover {
             text-decoration: underline;
@@ -74,6 +75,11 @@
             background-color: #004d00;
         }
     </style>
+    <script>
+        function showPopup() {
+            alert("The Discord server is not available to join.");
+        }
+    </script>
 </head>
 <body>
     <div class="development-message">
@@ -87,7 +93,7 @@
         Website: Online<br>
         Images: Online<br>
     </div>
-    <a class="discord-link" href="0" target="_blank">
+    <a class="discord-link" href="javascript:void(0);" onclick="showPopup()">
         Our discord is not available right now
     </a>
     <a class="about-button" href="about">About</a>
