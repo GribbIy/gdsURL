@@ -15,7 +15,7 @@
             justify-content: center;
             align-items: center;
             font-family: Arial, sans-serif;
-            position: relative;
+            animation: backgroundChange 5s infinite;
         }
 
         h1 {
@@ -23,7 +23,6 @@
             font-weight: bold;
             text-align: center;
             animation: colorChange 2s infinite;
-            z-index: 1;
         }
 
         @keyframes colorChange {
@@ -34,48 +33,16 @@
             100% { color: orange; }
         }
 
-        .confetti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: red;
-            top: -10px;
-            animation: confettiFall linear infinite, confettiSpin ease-in-out infinite;
-            z-index: 0;
-        }
-
-        @keyframes confettiFall {
-            0% { transform: translateY(-10px); }
-            100% { transform: translateY(100vh); }
-        }
-
-        @keyframes confettiSpin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        @keyframes backgroundChange {
+            0% { background-color: white; }
+            25% { background-color: lightblue; }
+            50% { background-color: lightgreen; }
+            75% { background-color: lightpink; }
+            100% { background-color: lightyellow; }
         }
     </style>
 </head>
 <body>
     <h1>Happy Birthday rockyrebel</h1>
-
-    <script>
-        function createConfetti() {
-            const confetti = document.createElement('div');
-            confetti.classList.add('confetti');
-            confetti.style.left = `${Math.random() * 100}vw`;
-            confetti.style.width = `${Math.random() * 10 + 5}px`;
-            confetti.style.height = `${Math.random() * 10 + 5}px`;
-            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-            confetti.style.animationDuration = `${Math.random() * 3 + 3}s, ${Math.random() * 2 + 1}s`;
-
-            document.body.appendChild(confetti);
-
-            setTimeout(() => {
-                confetti.remove();
-            }, 6000);
-        }
-
-        setInterval(createConfetti, 100);
-    </script>
 </body>
 </html>
