@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday!!!</title>
+    <title>Happy Birthday Rockyrebel</title>
     <style>
         body {
             margin: 0;
@@ -42,8 +42,8 @@
         }
 
         @keyframes confetti-fall {
-            0% { transform: translateY(-100px); }
-            100% { transform: translateY(100vh); }
+            0% { transform: translateY(-100px); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
         }
 
         @keyframes confetti-spin {
@@ -61,7 +61,10 @@
             confetti.classList.add('confetti');
             confetti.style.left = `${Math.random() * 100}vw`;
             confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-            confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            confetti.style.width = `${Math.random() * 10 + 5}px`;
+            confetti.style.height = `${Math.random() * 10 + 5}px`;
+            confetti.style.animationDuration = `${Math.random() * 3 + 2}s, ${Math.random() * 2 + 1}s`;
+
             document.body.appendChild(confetti);
 
             setTimeout(() => {
