@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>yo yo yo its humpday!!</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap');
+
         body {
             margin: 0;
             padding: 0;
@@ -12,6 +14,7 @@
             background-color: white;
             height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             font-family: Arial, sans-serif;
@@ -23,6 +26,22 @@
             font-weight: bold;
             text-align: center;
             animation: colorChange 2s infinite;
+            margin: 0;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .discord-button {
+            padding: 10px 20px;
+            font-family: 'Raleway', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            background: none;
+            border: none;
+            cursor: pointer;
+            animation: colorChange 2s infinite;
+            text-transform: uppercase;
         }
 
         @keyframes colorChange {
@@ -44,5 +63,6 @@
 </head>
 <body>
     <h1>Happy Birthday rockyrebel</h1>
+    <button class="discord-button">discord!!!</button>
 </body>
 </html>
