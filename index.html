@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Rockyrebel</title>
+    <title>yo yo yo its humpday!!</title>
     <style>
         body {
             margin: 0;
@@ -15,6 +15,7 @@
             justify-content: center;
             align-items: center;
             font-family: Arial, sans-serif;
+            position: relative;
         }
 
         h1 {
@@ -22,6 +23,7 @@
             font-weight: bold;
             text-align: center;
             animation: colorChange 2s infinite;
+            z-index: 1;
         }
 
         @keyframes colorChange {
@@ -37,16 +39,17 @@
             width: 10px;
             height: 10px;
             background-color: red;
-            animation: confetti-fall 5s linear infinite, confetti-spin 3s ease-in-out infinite;
             top: -10px;
+            animation: confettiFall linear infinite, confettiSpin ease-in-out infinite;
+            z-index: 0;
         }
 
-        @keyframes confetti-fall {
-            0% { transform: translateY(-100px); opacity: 1; }
-            100% { transform: translateY(100vh); opacity: 0; }
+        @keyframes confettiFall {
+            0% { transform: translateY(-10px); }
+            100% { transform: translateY(100vh); }
         }
 
-        @keyframes confetti-spin {
+        @keyframes confettiSpin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
@@ -60,16 +63,16 @@
             const confetti = document.createElement('div');
             confetti.classList.add('confetti');
             confetti.style.left = `${Math.random() * 100}vw`;
-            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
             confetti.style.width = `${Math.random() * 10 + 5}px`;
             confetti.style.height = `${Math.random() * 10 + 5}px`;
-            confetti.style.animationDuration = `${Math.random() * 3 + 2}s, ${Math.random() * 2 + 1}s`;
+            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            confetti.style.animationDuration = `${Math.random() * 3 + 3}s, ${Math.random() * 2 + 1}s`;
 
             document.body.appendChild(confetti);
 
             setTimeout(() => {
                 confetti.remove();
-            }, 5000);
+            }, 6000);
         }
 
         setInterval(createConfetti, 100);
