@@ -16,7 +16,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px 5%;
-    background-color: #1c1c1e;
+    background-color: #001f3f;
     position: fixed;
     top: 0;
     width: 100%;
@@ -46,19 +46,20 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #ff6363;
+    color: #003366;
     transform: scale(1.05);
 }
 
 nav ul li a.sign-in {
-    background-color: #ff6363;
+    background-color: #001f3f;
     padding: 10px 20px;
     border-radius: 5px;
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    border: 2px solid #fff;
 }
 
 nav ul li a.sign-in:hover {
-    background-color: #ff3b3b;
+    background-color: #003366;
     transform: scale(1.05);
 }
 
@@ -91,7 +92,7 @@ nav ul li a.sign-in:hover {
 }
 
 .cta-button {
-    background-color: #ff6363;
+    background-color: #001f3f;
     color: #fff;
     padding: 15px 30px;
     border-radius: 5px;
@@ -99,15 +100,16 @@ nav ul li a.sign-in:hover {
     font-size: 20px;
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
     animation: fadeIn 3s ease-in-out;
+    border: 2px solid #fff;
 }
 
 .cta-button:hover {
-    background-color: #ff3b3b;
+    background-color: #003366;
     transform: scale(1.1);
 }
 
 footer {
-    background-color: #1c1c1e;
+    background-color: #001f3f; 
     color: #fff;
     text-align: center;
     padding: 20px 0;
@@ -155,7 +157,7 @@ footer {
         position: fixed;
         right: 0;
         top: 60px;
-        background: #1c1c1e;
+        background: #001f3f;
         width: 100%;
         display: none;
     }
