@@ -55,40 +55,44 @@
     </div>
 
     <script>
-        async function searchPlayer() {
-            const playerSearchInput = document.getElementById('playerSearchInput').value;
-            const resultsDiv = document.getElementById('playerResults');
+     async function searchPlayer() {
+    const playerSearchInput = document.getElementById('playerSearchInput').value;
+    const resultsDiv = document.getElementById('playerResults');
 
-            if (!playerSearchInput) {
-                resultsDiv.innerHTML = 'Please enter a Player ID or Username.';
-                return;
-            }
+    if (!playerSearchInput) {
+        resultsDiv.innerHTML = 'Please enter a Player ID or Username.';
+        return;
+    }
 
-            try {
-                const response = await fetch('https://gdsgames.net/api/webservergds', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ playerSearchInput })
-                });
+    try {
+        const response = await fetch('https://gdsgames.net/api/webservergds', { 
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ playerSearchInput })
+        });
 
-                const result = await response.json();
-                if (result && result.PlayerProfile) {
-                    const profile = result.PlayerProfile;
-                    resultsDiv.innerHTML = `
-                        <p><strong>Player ID:</strong> ${profile.PlayerId}</p>
-                        <p><strong>Display Name:</strong> ${profile.DisplayName}</p>
-                        <p><strong>Created:</strong> ${new Date(profile.Created).toLocaleString()}</p>
-                        <p><strong>Last Login:</strong> ${new Date(profile.LastLogin).toLocaleString()}</p>
-                    `;
-                } else {
-                    resultsDiv.innerHTML = 'No player found with that ID or Username.';
-                }
-            } catch (error) {
-                resultsDiv.innerHTML = 'Error searching for player: ' + error.message;
-            }
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
+
+        const result = await response.json();
+        if (result && result.PlayerProfile) {
+            const profile = result.PlayerProfile;
+            resultsDiv.innerHTML = `
+                <p><strong>Player ID:</strong> ${profile.PlayerId}</p>
+                <p><strong>Display Name:</strong> ${profile.DisplayName}</p>
+                <p><strong>Created:</strong> ${new Date(profile.Created).toLocaleString()}</p>
+                <p><strong>Last Login:</strong> ${new Date(profile.LastLogin).toLocaleString()}</p>
+            `;
+        } else {
+            resultsDiv.innerHTML = 'No player found with that ID or Username.';
+        }
+    } catch (error) {
+        resultsDiv.innerHTML = 'Error searching for player: ' + error.message;
+    }
+}
     </script>
 
 </body>
