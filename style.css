@@ -65,7 +65,7 @@ nav ul li a.sign-in:hover {
 
 .hero {
     height: 100vh;
-    background: url('hero-bg.jpg') no-repeat center center/cover;
+    background: url('https://gdsgames.net/data/tempholder.jpg') no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
