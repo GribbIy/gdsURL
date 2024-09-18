@@ -1,0 +1,133 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #F2F2F2;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0A2742;
+    padding: 20px;
+    color: white;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+}
+
+.sign-in-btn {
+    border: 2px solid white;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+}
+
+.sign-in-btn:hover {
+    background-color: white;
+    color: #0A2742;
+}
+
+.hero {
+    background-color: #F2F2F2;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero-content h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #0A2742;
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: #707070;
+    margin-bottom: 40px;
+}
+
+.hero-content button {
+    background-color: #0A2742;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.hero-content button:hover {
+    background-color: #052238;
+}
+
+.games-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 50px;
+    background-color: white;
+}
+
+.game-card {
+    background-color: #F2F2F2;
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.game-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.game-card h3 {
+    font-size: 22px;
+    margin: 10px 0;
+    color: #0A2742;
+}
+
+.game-card p {
+    font-size: 16px;
+    color: #707070;
+    margin-bottom: 20px;
+}
+
+.game-card button {
+    background-color: #0A2742;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.game-card button:hover {
+    background-color: #052238;
+}
+
+footer {
+    background-color: #0A2742;
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
