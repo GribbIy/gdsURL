@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GDS Staff Login</title>
+    <title>GDS Auth Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -73,6 +73,9 @@
             text-align: center;
             margin-top: 20px;
         }
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -80,19 +83,80 @@
         <div class="logo">
             <img src="https://gdsgames.net/data/New.png" alt="GDS Logo">
         </div>
-        <div class="input-group">
-            <input type="text" placeholder="Email">
+        <div id="login-form">
+            <div class="input-group">
+                <input type="text" id="login-email" placeholder="Email">
+            </div>
+            <div class="input-group">
+                <input type="password" id="login-password" placeholder="Password">
+            </div>
+            <button class="login-btn" onclick="loginUser()">Log In</button>
+            <div class="forgot-password">
+                <a href="#">Forgotten password?</a>
+            </div>
+            <div class="create-account">
+                <a href="#" onclick="toggleForms()">Create New Account</a>
+            </div>
         </div>
-        <div class="input-group">
-            <input type="password" placeholder="Password">
-        </div>
-        <button class="login-btn">Log In</button>
-        <div class="forgot-password">
-            <a href="#">Forgotten password?</a>
-        </div>
-        <div class="create-account">
-            <a href="#">Create New Account</a>
+        
+        <div id="register-form" class="hidden">
+            <div class="input-group">
+                <input type="text" id="register-email" placeholder="Email">
+            </div>
+            <div class="input-group">
+                <input type="password" id="register-password" placeholder="Password">
+            </div>
+            <button class="login-btn" onclick="registerUser()">Register</button>
+            <div class="create-account">
+                <a href="#" onclick="toggleForms()">Back to Log In</a>
+            </div>
         </div>
     </div>
+
+    <script>
+        async function loginUser() {
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            const response = await fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username: email, password })
+            });
+
+            if (response.ok) {
+                alert('Login successful!');
+            } else {
+                alert('Login failed!');
+            }
+        }
+
+        async function registerUser() {
+            const email = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+
+            const response = await fetch('/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username: email, password })
+            });
+
+            if (response.ok) {
+                alert('Registration successful! You can now log in.');
+                toggleForms();
+            } else {
+                alert('Registration failed!');
+            }
+        }
+
+        function toggleForms() {
+            document.getElementById('login-form').classList.toggle('hidden');
+            document.getElementById('register-form').classList.toggle('hidden');
+        }
+    </script>
 </body>
 </html>
