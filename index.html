@@ -3,99 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GDS Coming Soon</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>GDS - Maintenance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
-        
         body {
-            background: linear-gradient(to bottom, black, darkgreen, darkblue);
-            color: white;
+            background: linear-gradient(to bottom, #000033, #000066 40%, #000066 60%, #000033);
+            font-family: 'Raleway', sans-serif;
+            color: #fff;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            font-family: 'Raleway', sans-serif;
-            font-size: 4vw;
-            text-align: center;
             position: relative;
-        }
-        .container {
-            width: 65%;
-        }
-        .status-box {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 1.5vw;
-            text-align: left;
-        }
-        .discord-link {
-            position: absolute;
-            bottom: 20px;
-            font-size: 1.5vw;
-            color: white;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .discord-link:hover {
-            text-decoration: underline;
-        }
-        .development-message {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(50, 50, 50, 0.9);
-            color: white;
-            font-size: 1.5vw;
-            padding: 10px 0;
             text-align: center;
-            z-index: 1;
         }
-        .about-button {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            background-color: darkgreen;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.5vw;
-            text-decoration: none;
-            cursor: pointer;
+        .maintenance-container {
+            width: 90%;
+            max-width: 600px;
+            padding: 20px;
+            background-color: rgba(0, 0, 51, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
         }
-        .about-button:hover {
-            background-color: #004d00;
+        .maintenance-container h1 {
+            color: #b0c4de;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .maintenance-container p {
+            color: #dcdcdc; 
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .icon {
+            font-size: 60px;
+            color: #b0c4de;
+            margin-bottom: 20px;
         }
     </style>
-    <script>
-        function showPopup() {
-            alert("The Discord server is not available to join.");
-        }
-    </script>
 </head>
 <body>
-    <div class="development-message">
-        Our site is being developed right now, check back soon
+    <div class="maintenance-container">
+        <div class="icon">🚧</div>
+        <h1>We'll be right back!</h1>
+        <p>Our website is currently undergoing scheduled maintenance. We appreciate your patience and will be back online shortly.</p>
     </div>
-    <div class="container">
-        GDS is coming soon...
-    </div>
-    <div class="status-box">
-        <strong>Status</strong><br>
-        Website: Online<br>
-        Images: Offline<br>
-    </div>
-    <a class="discord-link" href="javascript:void(0);" onclick="showPopup()">
-        Our discord is not available right now
-    </a>
-    <a class="about-button" href="about">About</a>
 </body>
 </html>
