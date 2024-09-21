@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Notes - GDS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="updatestyle.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>GDS</h1>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="signin.html">Sign In</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="update-section">
+        <div class="update-content">
+            <h2>Latest Update Notes</h2>
+            <p id="version"></p>
+            <ul class="update-list" id="update-list"></ul>
+            <a id="download-button" class="download-button" href="#" download>Download Now</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; The home of Yarn Universe</p>
+    </footer>
+
+    <script src="updatenotesfetch.js"></script>
+</body>
+</html>
