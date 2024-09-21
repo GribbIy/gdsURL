@@ -65,7 +65,7 @@ nav ul li a.sign-in:hover {
 
 .hero {
     height: 100vh;
-    background: url('https://gdsgames.net/data/GDSwebsitebanner.png') no-repeat center center/cover;
+    background-color: #0A2742;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -214,3 +214,12 @@ footer {
     nav ul li {
         margin: 10px 0;
     }
+
+    nav ul li a {
+        font-size: 22px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
