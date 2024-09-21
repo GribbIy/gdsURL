@@ -1,4 +1,4 @@
-fetch('updates.json')
+fetch('https://gdsgames.net/API/updateslaunchernotes.json')
     .then(response => response.json())
     .then(data => {
         const versionElement = document.getElementById('version');
