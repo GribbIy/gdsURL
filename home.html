@@ -6,7 +6,7 @@
     <title>GDS - Home</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://gdsgames.net/style.css">
+    <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 <body>
@@ -21,6 +21,9 @@
                 <li><a href="https://gdsgames.net/about">About</a></li>
                 <li><a href="https://gdsgames.net/authloginpage" class="sign-in">Sign In</a></li>
             </ul>
+            <div class="menu-icon">
+                <i class="fas fa-bars"></i>
+            </div>
         </nav>
     </header>
 
@@ -35,5 +38,14 @@
     <footer>
         <p>&copy; The home of Yarn Universe</p>
     </footer>
+
+    <script>
+        const menuIcon = document.querySelector('.menu-icon');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuIcon.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
