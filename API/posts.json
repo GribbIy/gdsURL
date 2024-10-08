@@ -1,0 +1,39 @@
+{
+  "creations": [
+    {
+      "title": "The Cyber Killer menuplayscreen",
+      "author": "rockyrebel",
+      "image": "data/LogoTrans.png"
+    },
+    {
+      "title": "The Cyber Killer scene01",
+      "author": "Lee09",
+      "image": "data/teaser001.png"
+    },
+    {
+      "title": "The Cyber Killer gamesetup",
+      "author": "rockyrebel",
+      "image": "data/LogoTrans.png"
+    }
+  ],
+  "communityPosts": [
+    {
+      "title": "Happy cat",
+      "author": "Lee09",
+      "date": "null",
+      "content": "https://media1.tenor.com/m/RUGGdovmONkAAAAd/dance-dancing.gif"
+    },
+    {
+      "title": "I own GDS games",
+      "author": "rockyrebel",
+      "date": "null",
+      "content": "Yes"
+    },
+    {
+      "title": "I love baby oil",
+      "author": "Diddy",
+      "date": "null",
+      "content": "Its true, I really love baby oil"
+    }
+  ]
+}
