@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    fetch('https://gdsgames.net/API/posts.json')
+    fetch('posts.json')
         .then(response => response.json())
         .then(data => {
             renderCreations(data.creations);
@@ -29,9 +29,14 @@ document.addEventListener("DOMContentLoaded", function() {
             postCard.innerHTML = `
                 <h4>${post.title}</h4>
                 <p>By ${post.author} - ${post.date}</p>
-                <p>${post.content}</p>
+                <p>${embedImages(post.content)}</p>
             `;
             postsContainer.appendChild(postCard);
         });
+    }
+
+    function embedImages(content) {
+        const imageUrlPattern = /(https?:\/\/[^\s]+(?:jpg|jpeg|png|gif))/g;
+        return content.replace(imageUrlPattern, '<img src="$1" alt="Embedded Image" class="embedded-image">');
     }
 });
