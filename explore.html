@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDS - Explore</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>GDS</h1>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="https://gdsgames.net/games">Games</a></li>
+                <li><a href="https://gdsgames.net/about">About</a></li>
+                <li><a href="https://gdsgames.net/authloginpage" class="sign-in">Sign In</a></li>
+            </ul>
+            <div class="menu-icon">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <section class="explore-header">
+        <div class="explore-header-content">
+            <h2>Explore Yarn Universe</h2>
+            <p>Explore a woolly world with your woolly friends in Yarn Universe</p>
+        </div>
+    </section>
+
+    <section class="explore-content">
+        <div class="explore-section">
+            <h3>What People Have Created in Yarn Universe</h3>
+            <div class="explore-grid" id="creations-grid">
+                <!-- creations go here -->
+            </div>
+        </div>
+
+        <div class="explore-section">
+            <h3>Community Posts</h3>
+            <div class="community-posts" id="community-posts">
+                <!-- posts show here -->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; The home of Yarn Universe</p>
+    </footer>
+
+    <script src="fetchposts.js"></script>
+</body>
+</html>
