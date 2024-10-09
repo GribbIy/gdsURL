@@ -110,106 +110,51 @@ nav ul li a.sign-in:hover {
     transform: scale(1.1);
 }
 
-/* Explore Section */
-.explore-header {
-    text-align: center;
-    padding: 60px 20px;
-    background-color: #0A2742;
-}
-
-.explore-header h2 {
-    font-size: 42px;
-    font-weight: 600;
-    color: #b0c4de;
-}
-
-.explore-header p {
-    font-size: 18px;
-    color: #dcdcdc;
-}
-
-.explore-content {
-    padding: 40px 20px;
-}
-
-.explore-section {
-    margin-bottom: 60px;
-}
-
-.explore-grid {
+.games-list {
     display: flex;
     justify-content: space-around;
-    gap: 20px;
     flex-wrap: wrap;
+    padding: 50px;
+    background-color: white;
 }
 
-.embedded-image {
-    max-width: 100%; 
-    height: auto;    
-    border-radius: 5px; 
-    margin-top: 10px; 
-}
-
-.explore-card {
-    background-color: #0A2742;
+.game-card {
+    background-color: #f2f2f2;
+    width: 300px;
+    margin: 20px;
     padding: 20px;
     border-radius: 10px;
-    width: 30%;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
 }
 
-.explore-card:hover {
-    transform: scale(1.05);
-}
-
-.explore-card img {
+.game-card img {
     width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-
-.explore-card h4 {
-    margin: 15px 0 10px;
-    font-size: 20px;
-    color: #b0c4de;
-}
-
-.explore-card p {
-    font-size: 16px;
-    color: #dcdcdc;
-}
-
-.community-posts {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.post-card {
-    background-color: #0A2742;
-    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
 }
 
-.post-card:hover {
-    transform: scale(1.05);
-}
-
-.post-card h4 {
+.game-card h3 {
     font-size: 22px;
-    font-weight: 600;
-    color: #b0c4de;
+    margin: 10px 0;
+    color: #0a2742;
 }
 
-.post-card p {
-    margin: 10px 0;
-    font-size: 14px;
-    color: #dcdcdc;
+.game-card p {
+    font-size: 16px;
+    color: #707070;
+    margin-bottom: 20px;
+}
+
+.game-card button {
+    background-color: #0a2742;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.game-card button:hover {
+    background-color: #052238;
 }
 
 footer {
@@ -243,15 +188,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .explore-card {
-        width: 100%;
-    }
-    
-    .explore-grid {
-        flex-direction: column;
-        align-items: center;
-    }
-
     .hero-title {
         font-size: 36px;
     }
@@ -286,4 +222,34 @@ footer {
     .nav-links.active {
         display: flex;
     }
+}
+
+.error-card {
+    background-color: #ffcccc;
+    color: #b30000;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px 0;
+    font-size: 18px;
+    animation: fadeInDown 0.5s ease-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.embedded-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 10px;
 }
