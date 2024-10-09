@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    fetch('posts.json')
+    fetch('API/posts.json')
         .then(response => response.json())
         .then(data => {
             renderCreations(data.creations);
