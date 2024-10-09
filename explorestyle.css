@@ -9,6 +9,8 @@ body {
     background: linear-gradient(to bottom, #000033, #000066 40%, #000066 60%, #000033);
     color: #dcdcdc;
     overflow-x: hidden;
+    font-size: 16px;
+    line-height: 1.6;
 }
 
 header {
@@ -32,6 +34,7 @@ header {
 nav ul {
     list-style: none;
     display: flex;
+    align-items: center;
 }
 
 nav ul li {
@@ -110,61 +113,78 @@ nav ul li a.sign-in:hover {
     transform: scale(1.1);
 }
 
-.games-list {
+section {
+    padding: 60px 5%;
+    text-align: center;
+}
+
+.explore-section {
+    background-color: #00264d;
+    color: #fff;
+    padding: 60px 5%;
+}
+
+.explore-section h2 {
+    color: #b0c4de;
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.explore-grid {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    padding: 50px;
-    background-color: white;
 }
 
-.game-card {
+.explore-card, .post-card {
     background-color: #f2f2f2;
     width: 300px;
     margin: 20px;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
+    color: #0a2742;
+    transition: transform 0.3s ease-in-out;
 }
 
-.game-card img {
+.explore-card:hover, .post-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.explore-card img, .post-card img {
     width: 100%;
     border-radius: 10px;
+    margin-bottom: 15px;
 }
 
-.game-card h3 {
+.explore-card h4, .post-card h4 {
     font-size: 22px;
-    margin: 10px 0;
-    color: #0a2742;
+    margin-bottom: 10px;
 }
 
-.game-card p {
+.explore-card p, .post-card p {
     font-size: 16px;
-    color: #707070;
-    margin-bottom: 20px;
+    color: #555;
 }
 
-.game-card button {
-    background-color: #0a2742;
-    color: white;
-    padding: 10px 20px;
-    border: none;
+.embedded-image {
+    max-width: 100%;
+    height: auto;
     border-radius: 5px;
-    cursor: pointer;
+    margin-top: 10px;
 }
 
-.game-card button:hover {
-    background-color: #052238;
-}
-
-footer {
-    background-color: #001f4d;
-    color: #dcdcdc;
+.error-card {
+    background-color: #ffcccc;
+    color: #b30000;
+    padding: 20px;
+    border-radius: 10px;
     text-align: center;
-    padding: 20px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+    margin: 20px 0;
+    font-size: 18px;
+    animation: fadeInDown 0.5s ease-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 @keyframes fadeInUp {
@@ -178,13 +198,25 @@ footer {
     }
 }
 
-@keyframes fadeIn {
+@keyframes fadeInDown {
     from {
         opacity: 0;
+        transform: translateY(-30px);
     }
     to {
         opacity: 1;
+        transform: translateY(0);
     }
+}
+
+footer {
+    background-color: #001f4d;
+    color: #dcdcdc;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
 
 @media (max-width: 768px) {
@@ -222,34 +254,13 @@ footer {
     .nav-links.active {
         display: flex;
     }
-}
 
-.error-card {
-    background-color: #ffcccc;
-    color: #b30000;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    margin: 20px 0;
-    font-size: 18px;
-    animation: fadeInDown 0.5s ease-out;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
+    .explore-grid {
+        flex-direction: column;
+        align-items: center;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
-.embedded-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-top: 10px;
+    .explore-card, .post-card {
+        width: 90%;
+    }
 }
