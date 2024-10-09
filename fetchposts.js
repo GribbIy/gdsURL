@@ -1,12 +1,20 @@
 document.addEventListener("DOMContentLoaded", function() {
-    fetch('API/posts.json')
-        .then(response => response.json())
+    fetch('posts.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
         .then(data => {
             renderCreations(data.creations);
             renderCommunityPosts(data.communityPosts);
         })
-        .catch(error => console.error('Error fetching data:', error));
-    
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            showErrorCard();
+        });
+
     function renderCreations(creations) {
         const creationsGrid = document.getElementById('creations-grid');
         creations.forEach(creation => {
@@ -38,5 +46,16 @@ document.addEventListener("DOMContentLoaded", function() {
     function embedImages(content) {
         const imageUrlPattern = /(https?:\/\/[^\s]+(?:jpg|jpeg|png|gif))/g;
         return content.replace(imageUrlPattern, '<img src="$1" alt="Embedded Image" class="embedded-image">');
+    }
+
+    function showErrorCard() {
+        const postsContainer = document.getElementById('community-posts');
+        const errorCard = document.createElement('div');
+        errorCard.classList.add('error-card');
+        errorCard.innerHTML = `
+            <h4>Oops! Something went wrong.</h4>
+            <p>We couldn't load the content. Please try again later.</p>
+        `;
+        postsContainer.appendChild(errorCard);
     }
 });
