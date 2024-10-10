@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yarn Universe Pallette</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .file-input {
+            margin-bottom: 15px;
+        }
+        .file-input label {
+            display: block;
+            font-weight: bold;
+        }
+        .file-input input[type="file"] {
+            width: 100%;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Upload to Creation Palette</h1>
+
+        <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
+            <div class="file-input">
+                <label for="audio">Upload Audio File</label>
+                <input type="file" id="audio" name="audio" accept="audio/*" required>
+            </div>
+
+            <div class="file-input">
+                <label for="image">Upload Image File</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
+            </div>
+
+            <div class="file-input">
+                <label for="model">Upload 3D Model (e.g., .obj, .fbx)</label>
+                <input type="file" id="model" name="model" accept=".obj, .fbx, .gltf, .glb" required>
+            </div>
+
+            <div class="file-input">
+                <label for="unity">Upload Unity Level File (.unitypackage)</label>
+                <input type="file" id="unity" name="unity" accept=".unitypackage" required>
+            </div>
+
+            <button type="submit" class="submit-btn">Upload Files</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('uploadForm').onsubmit = function(event) {
+            let audio = document.getElementById('audio').files[0];
+            let image = document.getElementById('image').files[0];
+            let model = document.getElementById('model').files[0];
+            let unity = document.getElementById('unity').files[0];
+            
+            if (!audio || !image || !model || !unity) {
+                alert('Please upload all required files.');
+                event.preventDefault();
+            }
+        };
+    </script>
+
+</body>
+</html>
