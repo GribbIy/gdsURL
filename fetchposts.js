@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <img src="${creation.image}" alt="${creation.title}">
                 <h4>${creation.title}</h4>
                 <p>By ${creation.author}</p>
-                ${creation.video ? `<iframe width="100%" height="auto" src="${creation.video.replace('watch?v=', 'embed/')}" frameborder="0" allowfullscreen></iframe>` : ''}
+                ${creation.video ? embedVideo(creation.video) : ""}
             `;
             creationsGrid.appendChild(creationCard);
         });
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <h4>${post.title}</h4>
                 <p>By ${post.author} - ${post.date}</p>
                 <p>${embedImages(post.content)}</p>
-                ${post.video ? `<iframe width="100%" height="auto" src="${post.video.replace('watch?v=', 'embed/')}" frameborder="0" allowfullscreen></iframe>` : ''}
+                ${post.video ? embedVideo(post.video) : ""}
             `;
             postsContainer.appendChild(postCard);
         });
@@ -48,6 +48,23 @@ document.addEventListener("DOMContentLoaded", function() {
     function embedImages(content) {
         const imageUrlPattern = /(https?:\/\/[^\s]+(?:jpg|jpeg|png|gif))/g;
         return content.replace(imageUrlPattern, '<img src="$1" alt="Embedded Image" class="embedded-image">');
+    }
+
+    function embedVideo(videoUrl) {
+        if (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) {
+            const youtubeId = videoUrl.match(/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|embed|shorts|watch|user|playlist)[^\/\n\s]+\/|(?:(?:watch\?v=|v\/|embed\/|v=)|v\/|shorts\/))([^?&\n\/]+))|(?:youtu\.be\/([^?&\n\/]+))/)[1];
+            return `<iframe width="100%" height="315" src="https://www.youtube.com/embed/${youtubeId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+        } else if (videoUrl.includes('vimeo.com')) {
+            const vimeoId = videoUrl.split('/').pop();
+            return `<iframe src="https://player.vimeo.com/video/${vimeoId}" width="100%" height="315" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
+        } else if (videoUrl.endsWith('.mp4')) {
+            return `<video width="100%" controls>
+                        <source src="${videoUrl}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>`;
+        } else {
+            return `<a href="${videoUrl}" target="_blank">Watch Video</a>`;
+        }
     }
 
     function showErrorCard() {
