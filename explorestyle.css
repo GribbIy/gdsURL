@@ -114,7 +114,7 @@ nav ul li a.sign-in:hover {
 }
 
 section {
-    padding: 60px 5%;
+    padding: 80px 5%;
     text-align: center;
 }
 
@@ -141,7 +141,7 @@ section {
     background-color: #001f4d;
     color: #dcdcdc;
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     padding: 20px;
     border-radius: 10px;
     text-align: left;
@@ -161,7 +161,7 @@ section {
 }
 
 .explore-card h4, .post-card h4 {
-    font-size: 22px;
+    font-size: 24px;
     margin-bottom: 10px;
 }
 
@@ -265,5 +265,13 @@ footer {
     .explore-card, .post-card {
         width: 90%;
         max-width: 100%;
+    }
+
+    .explore-card h4, .post-card h4 {
+        font-size: 20px;
+    }
+
+    .explore-card p, .post-card p {
+        font-size: 16px;
     }
 }
