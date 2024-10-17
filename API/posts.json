@@ -1,39 +1,45 @@
 {
-  "creations": [
-    {
-      "title": "The Cyber Killer menuplayscreen",
-      "author": "rockyrebel",
-      "image": "data/LogoTrans.png"
-    },
-    {
-      "title": "The Cyber Killer scene01",
-      "author": "Lee09",
-      "image": "data/teaser001.png"
-    },
-    {
-      "title": "The Cyber Killer gamesetup",
-      "author": "rockyrebel",
-      "image": "data/LogoTrans.png"
-    }
-  ],
-  "communityPosts": [
-    {
-      "title": "Welcome to GDS!",
-      "author": "JayTDK",
-      "date": "null",
-      "content": "Glad to see you, you should drop by our discord for updates! https://discord.gg/9YfMdmKZ6S"
-    },
-    {
-      "title": "I own GDS games",
-      "author": "rockyrebel",
-      "date": "null",
-      "content": "Yes"
-    },
-    {
-      "title": "I love baby oil",
-      "author": "Diddy",
-      "date": "null",
-      "content": "Its true, I really love baby oil"
-    }
-  ]
+    "creations": [
+        {
+            "title": "The Cyber Killer menuplayscreen",
+            "author": "rockyrebel",
+            "image": "data/LogoTrans.png",
+            "video": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        },
+        {
+            "title": "The Cyber Killer scene01",
+            "author": "Lee09",
+            "image": "data/teaser001.png",
+            "video": "https://www.youtube.com/watch?v=9bZkp7q19f0"
+        },
+        {
+            "title": "The Cyber Killer gamesetup",
+            "author": "rockyrebel",
+            "image": "data/LogoTrans.png",
+            "video": "https://www.youtube.com/watch?v=3JZ_D3ELwOQ"
+        }
+    ],
+    "communityPosts": [
+        {
+            "title": "Welcome to GDS!",
+            "author": "JayTDK",
+            "date": "null",
+            "content": "Glad to see you, you should drop by our discord for updates! https://discord.gg/9YfMdmKZ6S",
+            "video": ""
+        },
+        {
+            "title": "I own GDS games",
+            "author": "rockyrebel",
+            "date": "null",
+            "content": "Yes",
+            "video": ""  // No video for this post
+        },
+        {
+            "title": "watch video pls :P",
+            "author": "Mario",
+            "date": "null",
+            "content": "My names Mario",
+            "video": "https://cdn.discordapp.com/attachments/1159906655161561210/1296480350012313650/Snapinsta.app_video_AE41FB4A16AF1773480A9850EB8CD192_video_dashinit.mp4?ex=671270ea&is=67111f6a&hm=e4346f408c996ef2ecf83ceb828557e210aec44b6610db806c05a8958a259cbc&"
+        }
+    ]
 }
