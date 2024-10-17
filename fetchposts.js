@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <img src="${creation.image}" alt="${creation.title}">
                 <h4>${creation.title}</h4>
                 <p>By ${creation.author}</p>
+                ${creation.video ? `<iframe width="100%" height="auto" src="${creation.video.replace('watch?v=', 'embed/')}" frameborder="0" allowfullscreen></iframe>` : ''}
             `;
             creationsGrid.appendChild(creationCard);
         });
@@ -38,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <h4>${post.title}</h4>
                 <p>By ${post.author} - ${post.date}</p>
                 <p>${embedImages(post.content)}</p>
+                ${post.video ? `<iframe width="100%" height="auto" src="${post.video.replace('watch?v=', 'embed/')}" frameborder="0" allowfullscreen></iframe>` : ''}
             `;
             postsContainer.appendChild(postCard);
         });
