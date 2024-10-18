@@ -57,6 +57,8 @@ document.addEventListener("DOMContentLoaded", function() {
         } else if (videoUrl.includes('vimeo.com')) {
             const vimeoId = videoUrl.split('/').pop();
             return `<iframe src="https://player.vimeo.com/video/${vimeoId}" width="100%" height="315" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
+        } else if (videoUrl.includes('twitter.com')) {
+            return embedTwitterVideo(videoUrl);
         } else if (videoUrl.endsWith('.mp4')) {
             return `<video width="100%" controls>
                         <source src="${videoUrl}" type="video/mp4">
@@ -65,6 +67,19 @@ document.addEventListener("DOMContentLoaded", function() {
         } else {
             return `<a href="${videoUrl}" target="_blank">Watch Video</a>`;
         }
+    }
+
+    function embedTwitterVideo(tweetUrl) {
+        const twitterEmbedDiv = document.createElement('div');
+        twitterEmbedDiv.classList.add('twitter-video');
+        twitterEmbedDiv.innerHTML = `<blockquote class="twitter-tweet"><a href="${tweetUrl}"></a></blockquote>`;
+
+        const twitterScript = document.createElement('script');
+        twitterScript.setAttribute('src', 'https://platform.twitter.com/widgets.js');
+        twitterScript.setAttribute('async', 'true');
+
+        document.body.appendChild(twitterScript);
+        return twitterEmbedDiv.outerHTML;
     }
 
     function showErrorCard() {
