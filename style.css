@@ -16,7 +16,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px 5%;
-    background-color: #AC6900;
+    background-color: #00264d;
     position: fixed;
     top: 0;
     width: 100%;
@@ -51,7 +51,7 @@ nav ul li a:hover {
 }
 
 nav ul li a.sign-in {
-    background-color: #AC6900;
+    background-color: #00264d;
     padding: 10px 20px;
     border-radius: 5px;
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -98,7 +98,7 @@ nav ul li a.sign-in:hover {
 }
 
 .cta-button {
-    background-color: #AC6900;
+    background-color: #00264d;
     color: #fff;
     padding: 15px 30px;
     border-radius: 5px;
@@ -115,7 +115,7 @@ nav ul li a.sign-in:hover {
 }
 
 footer {
-    background-color: #AC6900;
+    background-color: #00264d;
     color: #dcdcdc;
     text-align: center;
     padding: 20px 0;
@@ -163,7 +163,7 @@ footer {
         position: fixed;
         right: 0;
         top: 60px;
-        background: #AC6900;
+        background: #00264d;
         width: 100%;
         display: none;
     }
