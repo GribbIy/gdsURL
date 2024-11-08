@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Launcher",
+        "description": "Handles core services",
+        "status": "online"
+    },
+    {
+        "name": "YarnUniverse Planets",
+        "description": "Storage for Planets",
+        "status": "offline"
+    },
+    {
+        "name": "Accounts",
+        "description": "Holds accounts and processes player to player requests",
+        "status": "online"
+    },
+    {
+        "name": "Economy",
+        "description": "Game stores and Item shops",
+        "status": "offline"
+    }
+]
