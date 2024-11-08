@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDS - Server Status</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #000033, #000066 40%, #000066 60%, #000033);
+            font-family: 'Raleway', sans-serif;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .status-container {
+            max-width: 800px;
+            width: 100%;
+            padding: 30px;
+            background-color: rgba(0, 0, 51, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+        .status-container h1 {
+            font-size: 2.5em;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .server-status {
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #003366;
+            transition: background-color 0.3s ease;
+        }
+        .server-status.online {
+            background-color: #28a745;
+        }
+        .server-status.offline {
+            background-color: #dc3545;
+        }
+        .server-status h2 {
+            margin: 5px 0;
+            color: #ffd700;
+        }
+        .server-status p {
+            margin: 5px 0;
+            color: #dcdcdc;
+        }
+        .refresh-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #003366;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .refresh-button:hover {
+            background-color: #001f4d;
+        }
+    </style>
+</head>
+<body>
+    <div class="status-container">
+        <h1>Server Status</h1>
+        <div id="server-list"></div>
+        <button onclick="fetchServerStatus()" class="refresh-button">Refresh Status</button>
+    </div>
+
+    <script>
+        async function fetchServerStatus() {
+            const serverListElement = document.getElementById('server-list');
+            serverListElement.innerHTML = "Loading server status...";
+
+            try {
+                const response = await fetch('API/servers.json');
+                const servers = await response.json();
+                serverListElement.innerHTML = "";
+                servers.forEach(server => {
+                    const serverElement = document.createElement('div');
+                    serverElement.classList.add('server-status');
+                    serverElement.classList.add(server.status.toLowerCase());
+                    serverElement.innerHTML = `
+                        <h2>${server.name}</h2>
+                        <p>${server.description}</p>
+                        <p>Status: <strong>${server.status.toUpperCase()}</strong></p>
+                    `;
+                    serverListElement.appendChild(serverElement);
+                });
+
+            } catch (error) {
+                console.error('Error fetching server status:', error);
+                serverListElement.innerHTML = "Unable to fetch server status. Please try again later.";
+            }
+        }
+        fetchServerStatus();
+    </script>
+</body>
+</html>
