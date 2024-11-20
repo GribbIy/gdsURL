@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Community Page</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(to bottom, #000033, #000066 40%, #000066 60%, #000033);
+    color: #dcdcdc;
+    overflow-x: hidden;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: #001f4d;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo h1 {
+    color: #b0c4de;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #b0c4de;
+    font-size: 18px;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #dcdcdc;
+    transform: scale(1.05);
+}
+
+.post-card {
+    background-color: #001f4d;
+    color: #dcdcdc;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.post-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.post-card img, .post-card video {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.post-card h4 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.post-card p {
+    font-size: 18px;
+    color: #dcdcdc;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.action-buttons button {
+    background-color: #001f4d;
+    color: #b0c4de;
+    border: 1px solid #b0c4de;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.action-buttons button:hover {
+    background-color: #003366;
+    color: #fff;
+}
+
+footer {
+    background-color: #001f4d;
+    color: #dcdcdc;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <h1>Community</h1>
+    </div>
+    <nav>
+        <ul>
+                <li><a href="https://gdsgames.net/home" class="active">Home</a></li>
+                <li><a href="https://gdsgames.net/games">Games</a></li>
+                <li><a href="https://gdsgames.net/status">Server Status</a></li>
+                <li><a href="https://gdsgames.net/about">About</a></li>
+                <li><a href="https://gdsgames.net/values">Our Values</a></li>
+                <li><a href="https://gdsgames.net/authloginpage" class="sign-in">Sign In</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main id="post-container" style="padding-top: 100px; margin-bottom: 60px;">
+    <!-- posts go here btw -->
+</main>
+
+<footer>
+    <p>Posts may contain content that violates code of conduct.</p>
+</footer>
+
+<script>
+fetch('API/communityposts.json')
+    .then(response => response.json())
+    .then(posts => {
+        const postContainer = document.getElementById('post-container');
+        posts.forEach(post => {
+            const postCard = document.createElement('div');
+            postCard.classList.add('post-card');
+            postCard.innerHTML = `
+                <h4>${post.author}</h4>
+                <p>${post.text}</p>
+            `;
+
+            if (post.mediaType === 'image') {
+                postCard.innerHTML += `<img src="${post.media}" alt="Post Media">`;
+            } else if (post.mediaType === 'video') {
+                postCard.innerHTML += `
+                    <video controls>
+                        <source src="${post.media}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                `;
+            }
+
+            postCard.innerHTML += `
+                <div class="action-buttons">
+                    <button><i class="fas fa-heart"></i> Like</button>
+                    <button><i class="fas fa-comment"></i> Comment</button>
+                    <button><i class="fas fa-share"></i> Share</button>
+                    <button><i class="fas fa-flag"></i> Report</button>
+                </div>
+            `;
+
+            postContainer.appendChild(postCard);
+        });
+    })
+    .catch(error => console.error('Error loading posts:', error));
+</script>
+
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
