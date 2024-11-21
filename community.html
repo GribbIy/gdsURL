@@ -6,149 +6,147 @@
 <title>Community Page</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
 
-body {
-    background: linear-gradient(to bottom, #000033, #000066 40%, #000066 60%, #000033);
-    color: #dcdcdc;
-    overflow-x: hidden;
-    font-size: 16px;
-    line-height: 1.6;
-}
+    body {
+        background: linear-gradient(to bottom, #000033, #000066 40%, #000066 60%, #000033);
+        color: #dcdcdc;
+        overflow-x: hidden;
+        font-size: 16px;
+        line-height: 1.6;
+    }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 5%;
-    background-color: #001f4d;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-}
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 5%;
+        background-color: #001f4d;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+    }
 
-.logo h1 {
-    color: #b0c4de;
-    font-size: 28px;
-    font-weight: 600;
-}
+    .logo h1 {
+        color: #b0c4de;
+        font-size: 28px;
+        font-weight: 600;
+    }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
-}
+    nav ul {
+        list-style: none;
+        display: flex;
+        align-items: center;
+    }
 
-nav ul li {
-    margin-left: 20px;
-}
+    nav ul li {
+        margin-left: 20px;
+    }
 
-nav ul li a {
-    text-decoration: none;
-    color: #b0c4de;
-    font-size: 18px;
-    transition: color 0.3s ease-in-out;
-}
+    nav ul li a {
+        text-decoration: none;
+        color: #b0c4de;
+        font-size: 18px;
+        transition: color 0.3s ease-in-out;
+    }
 
-nav ul li a:hover {
-    color: #dcdcdc;
-    transform: scale(1.05);
-}
+    nav ul li a:hover {
+        color: #dcdcdc;
+        transform: scale(1.05);
+    }
 
-.post-card {
-    background-color: #001f4d;
-    color: #dcdcdc;
-    width: 100%;
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: left;
-    transition: transform 0.3s ease-in-out;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
+    .post-card {
+        background-color: #001f4d;
+        color: #dcdcdc;
+        width: 100%;
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: left;
+        transition: transform 0.3s ease-in-out;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 
-.post-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
+    .post-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
 
-.post-card img, .post-card video {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
+    .post-card img, .post-card video {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
 
-.post-card h4 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
+    footer {
+        background-color: #001f4d;
+        color: #dcdcdc;
+        text-align: center;
+        padding: 20px 0;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+    }
 
-.post-card p {
-    font-size: 18px;
-    color: #dcdcdc;
-}
+    #upload-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+    }
 
-.action-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 15px;
-}
+    #upload-modal .modal-content {
+        background: #001f4d;
+        padding: 20px;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 500px;
+        color: #dcdcdc;
+    }
 
-.action-buttons button {
-    background-color: #001f4d;
-    color: #b0c4de;
-    border: 1px solid #b0c4de;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-}
+    #upload-modal .modal-content h2 {
+        margin-bottom: 20px;
+    }
 
-.action-buttons button:hover {
-    background-color: #003366;
-    color: #fff;
-}
+    #upload-modal .modal-content input, #upload-modal .modal-content select, #upload-modal .modal-content button {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #b0c4de;
+        border-radius: 5px;
+        background: #00274d;
+        color: #dcdcdc;
+    }
 
-footer {
-    background-color: #001f4d;
-    color: #dcdcdc;
-    text-align: center;
-    padding: 20px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
+    #upload-modal .modal-content button {
+        background-color: #003366;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+    }
 
-#upload-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 1001;
-    justify-content: center;
-    align-items: center;
-}
+    #upload-modal .modal-content button:hover {
+        background-color: #004080;
+    }
 
-#upload-modal div {
-    background-color: #001f4d;
-    color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 400px;
-    width: 100%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
+    #close-modal {
+        float: right;
+        cursor: pointer;
+        color: #b0c4de;
+        font-size: 18px;
+    }
 </style>
 </head>
 <body>
@@ -180,76 +178,28 @@ footer {
 </header>
 
 <main id="post-container" style="padding-top: 100px; margin-bottom: 60px;">
-    <!-- posts go here btw -->
+    <!-- posts go here -->
 </main>
 
 <footer>
     <p>Posts may contain content that violates code of conduct.</p>
 </footer>
+
 <div id="upload-modal">
-    <div>
-        <h3 style="margin-bottom: 20px;">Upload New Post</h3>
+    <div class="modal-content">
+        <span id="close-modal">&times;</span>
+        <h2>Upload Post</h2>
         <form id="upload-form">
-            <label for="author" style="display: block; margin-bottom: 10px;">Author:</label>
-            <input type="text" id="author" name="author" required style="
-                width: 100%;
-                padding: 8px;
-                margin-bottom: 20px;
-                border: 1px solid #b0c4de;
-                border-radius: 5px;
-            ">
-
-            <label for="text" style="display: block; margin-bottom: 10px;">Post Text:</label>
-            <textarea id="text" name="text" required style="
-                width: 100%;
-                padding: 8px;
-                margin-bottom: 20px;
-                border: 1px solid #b0c4de;
-                border-radius: 5px;
-                resize: vertical;
-            "></textarea>
-
-            <label for="media" style="display: block; margin-bottom: 10px;">Media URL:</label>
-            <input type="url" id="media" name="media" required style="
-                width: 100%;
-                padding: 8px;
-                margin-bottom: 20px;
-                border: 1px solid #b0c4de;
-                border-radius: 5px;
-            ">
-
-            <label for="mediaType" style="display: block; margin-bottom: 10px;">Media Type:</label>
-            <select id="mediaType" name="mediaType" required style="
-                width: 100%;
-                padding: 8px;
-                margin-bottom: 20px;
-                border: 1px solid #b0c4de;
-                border-radius: 5px;
-            ">
+            <input type="text" id="author" placeholder="Your Name" required>
+            <textarea id="text" placeholder="Write something..." rows="4" required></textarea>
+            <input type="text" id="media" placeholder="Media URL (optional)">
+            <select id="mediaType">
+                <option value="">Select Media Type</option>
                 <option value="image">Image</option>
                 <option value="video">Video</option>
             </select>
-
-            <button type="submit" style="
-                background-color: #003366;
-                color: #fff;
-                padding: 10px 20px;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                transition: background-color 0.3s;
-            ">Upload</button>
+            <button type="submit">Submit</button>
         </form>
-        <button id="close-modal" style="
-            margin-top: 20px;
-            background-color: #ff4d4d;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        ">Cancel</button>
     </div>
 </div>
 
@@ -275,15 +225,11 @@ fetch('API/communityposts.json')
                     </video>
                 `;
             }
-            postCard.innerHTML += `
-                <div class="action-buttons">
-                    <button><i class="fas fa-flag"></i> Report</button>
-                </div>
-            `;
             postContainer.prepend(postCard);
         });
     })
     .catch(error => console.error('Error loading posts:', error));
+
 const uploadBtn = document.getElementById('upload-btn');
 const uploadModal = document.getElementById('upload-modal');
 const closeModal = document.getElementById('close-modal');
@@ -301,8 +247,41 @@ window.addEventListener('click', (event) => {
         uploadModal.style.display = 'none';
     }
 });
-</script>
 
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-</body>
-</html>
+document.getElementById('upload-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const author = document.getElementById('author').value;
+    const text = document.getElementById('text').value;
+    const media = document.getElementById('media').value;
+    const mediaType = document.getElementById('mediaType').value;
+
+    const postData = {
+        author,
+        text,
+        media,
+        mediaType
+    };
+
+    try {
+        const response = await fetch("https://gdsgames.net/api/uploadpost", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(postData)
+        });
+
+        if (response.ok) {
+            alert("Post successfully sent!");
+        } else {
+            alert("Failed to send post. Please try again.");
+        }
+    } catch (error) {
+        console.error("Error sending post:", error);
+        alert("An error occurred. Please try again later.");
+    }
+
+    uploadModal.style.display = 'none';
+});
+</
