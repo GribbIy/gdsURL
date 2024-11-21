@@ -166,7 +166,6 @@ fetch('API/communityposts.json')
                 <h4>${post.author}</h4>
                 <p>${post.text}</p>
             `;
-
             if (post.mediaType === 'image') {
                 postCard.innerHTML += `<img src="${post.media}" alt="Post Media">`;
             } else if (post.mediaType === 'video') {
@@ -177,14 +176,12 @@ fetch('API/communityposts.json')
                     </video>
                 `;
             }
-
             postCard.innerHTML += `
                 <div class="action-buttons">
                     <button><i class="fas fa-flag"></i> Report</button>
                 </div>
             `;
-
-            postContainer.appendChild(postCard);
+            postContainer.prepend(postCard);
         });
     })
     .catch(error => console.error('Error loading posts:', error));
