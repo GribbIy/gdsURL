@@ -85,6 +85,12 @@
         margin-bottom: 15px;
     }
 
+    .post-card h4 {
+        font-size: 35px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
     footer {
         background-color: #001f4d;
         color: #dcdcdc;
@@ -157,12 +163,12 @@
     </div>
     <nav>
         <ul>
-                <li><a href="https://gdsgames.net/home" class="active">Home</a></li>
-                <li><a href="https://gdsgames.net/games">Games</a></li>
-                <li><a href="https://gdsgames.net/status">Server Status</a></li>
-                <li><a href="https://gdsgames.net/about">About</a></li>
-                <li><a href="https://gdsgames.net/values">Our Values</a></li>
-                <li><a href="https://gdsgames.net/authloginpage" class="sign-in">Sign In</a></li>
+            <li><a href="https://gdsgames.net/home" class="active">Home</a></li>
+            <li><a href="https://gdsgames.net/games">Games</a></li>
+            <li><a href="https://gdsgames.net/status">Server Status</a></li>
+            <li><a href="https://gdsgames.net/about">About</a></li>
+            <li><a href="https://gdsgames.net/values">Our Values</a></li>
+            <li><a href="https://gdsgames.net/authloginpage" class="sign-in">Sign In</a></li>
         </ul>
     </nav>
     <button id="upload-btn" style="
@@ -229,7 +235,6 @@ fetch('API/communityposts.json')
         });
     })
     .catch(error => console.error('Error loading posts:', error));
-
 const uploadBtn = document.getElementById('upload-btn');
 const uploadModal = document.getElementById('upload-modal');
 const closeModal = document.getElementById('close-modal');
@@ -255,6 +260,16 @@ document.getElementById('upload-form').addEventListener('submit', async (e) => {
     const text = document.getElementById('text').value;
     const media = document.getElementById('media').value;
     const mediaType = document.getElementById('mediaType').value;
+    const blacklistedResponse = await fetch('API/blacklistedwords.json');
+    const blacklistData = await blacklistedResponse.json();
+    const blacklistedWords = blacklistData.blacklistedWords;
+    function containsBlacklistedWords(input) {
+        return blacklistedWords.some(word => input.toLowerCase().includes(word.toLowerCase()));
+    }
+    if (containsBlacklistedWords(author) || containsBlacklistedWords(text)) {
+        alert("Your post contains content violating our rules!! If this is incorrect make sure to let us know.");
+        return;
+    }
 
     const postData = {
         author,
@@ -286,6 +301,5 @@ document.getElementById('upload-form').addEventListener('submit', async (e) => {
 });
 </script>
 
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
