@@ -85,12 +85,6 @@
         margin-bottom: 15px;
     }
 
-    .post-card h4 {
-        font-size: 35px;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-
     footer {
         background-color: #001f4d;
         color: #dcdcdc;
@@ -163,12 +157,12 @@
     </div>
     <nav>
         <ul>
-            <li><a href="https://gdsgames.net/home" class="active">Home</a></li>
-            <li><a href="https://gdsgames.net/games">Games</a></li>
-            <li><a href="https://gdsgames.net/status">Server Status</a></li>
-            <li><a href="https://gdsgames.net/about">About</a></li>
-            <li><a href="https://gdsgames.net/values">Our Values</a></li>
-            <li><a href="https://gdsgames.net/authloginpage" class="sign-in">Sign In</a></li>
+                <li><a href="https://gdsgames.net/home" class="active">Home</a></li>
+                <li><a href="https://gdsgames.net/games">Games</a></li>
+                <li><a href="https://gdsgames.net/status">Server Status</a></li>
+                <li><a href="https://gdsgames.net/about">About</a></li>
+                <li><a href="https://gdsgames.net/values">Our Values</a></li>
+                <li><a href="https://gdsgames.net/authloginpage" class="sign-in">Sign In</a></li>
         </ul>
     </nav>
     <button id="upload-btn" style="
@@ -195,46 +189,16 @@
     <div class="modal-content">
         <span id="close-modal">&times;</span>
         <h2>Upload Post</h2>
-        <form id="upload-form">
-            <input type="text" id="author" placeholder="Your Name" required>
-            <textarea id="text" placeholder="Write something..." rows="4" required></textarea>
-            <input type="text" id="media" placeholder="Media URL (optional)">
-            <select id="mediaType">
-                <option value="">Select Media Type</option>
-                <option value="image">Image</option>
-                <option value="video">Video</option>
-            </select>
+        <form id="upload-form" enctype="multipart/form-data">
+            <input type="text" id="author" name="author" placeholder="Your Name" required>
+            <textarea id="text" name="text" placeholder="Write something..." rows="4" required></textarea>
+            <input type="file" id="media" name="media" accept="image/*" required>
             <button type="submit">Submit</button>
         </form>
     </div>
 </div>
 
 <script>
-fetch('API/communityposts.json')
-    .then(response => response.json())
-    .then(posts => {
-        const postContainer = document.getElementById('post-container');
-        posts.forEach(post => {
-            const postCard = document.createElement('div');
-            postCard.classList.add('post-card');
-            postCard.innerHTML = `
-                <h4>${post.author}</h4>
-                <p>${post.text}</p>
-            `;
-            if (post.mediaType === 'image') {
-                postCard.innerHTML += `<img src="${post.media}" alt="Post Media">`;
-            } else if (post.mediaType === 'video') {
-                postCard.innerHTML += `
-                    <video controls>
-                        <source src="${post.media}" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                `;
-            }
-            postContainer.prepend(postCard);
-        });
-    })
-    .catch(error => console.error('Error loading posts:', error));
 const uploadBtn = document.getElementById('upload-btn');
 const uploadModal = document.getElementById('upload-modal');
 const closeModal = document.getElementById('close-modal');
@@ -256,35 +220,15 @@ window.addEventListener('click', (event) => {
 document.getElementById('upload-form').addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const author = document.getElementById('author').value;
-    const text = document.getElementById('text').value;
-    const media = document.getElementById('media').value;
-    const mediaType = document.getElementById('mediaType').value;
-    const blacklistedResponse = await fetch('API/blacklistedwords.json');
-    const blacklistData = await blacklistedResponse.json();
-    const blacklistedWords = blacklistData.blacklistedWords;
-    function containsBlacklistedWords(input) {
-        return blacklistedWords.some(word => input.toLowerCase().includes(word.toLowerCase()));
-    }
-    if (containsBlacklistedWords(author) || containsBlacklistedWords(text)) {
-        alert("Your post contains content violating our rules!! If this is incorrect make sure to let us know.");
-        return;
-    }
-
-    const postData = {
-        author,
-        text,
-        media,
-        mediaType
-    };
+    const formData = new FormData();
+    formData.append('author', document.getElementById('author').value);
+    formData.append('text', document.getElementById('text').value);
+    formData.append('media', document.getElementById('media').files[0]);
 
     try {
-        const response = await fetch("https://gdsgames.net/api/uploadpost", {
+        const response = await fetch("https://your-cloudflare-worker-url", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(postData)
+            body: formData
         });
 
         if (response.ok) {
