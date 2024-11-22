@@ -259,7 +259,7 @@ document.getElementById('upload-form').addEventListener('submit', async (e) => {
     const text = document.getElementById('text').value;
     const media = document.getElementById('media').value;
     const mediaType = document.getElementById('mediaType').value;
-    const blacklistedResponse = await fetch('blacklisted-words.json');
+    const blacklistedResponse = await fetch('API/blacklistedwords.json');
     const blacklistData = await blacklistedResponse.json();
     const blacklistedWords = blacklistData.blacklistedWords;
     function containsBlacklistedWords(input) {
