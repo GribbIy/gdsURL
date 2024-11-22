@@ -16,9 +16,9 @@
     body {
         background: linear-gradient(to bottom, #000033, #000066 40%, #000066 60%, #000033);
         color: #dcdcdc;
-        overflow-x: hidden;
         font-size: 16px;
         line-height: 1.6;
+        overflow-x: hidden;
     }
 
     header {
@@ -121,7 +121,9 @@
         margin-bottom: 20px;
     }
 
-    #upload-modal .modal-content input, #upload-modal .modal-content select, #upload-modal .modal-content button {
+    #upload-modal .modal-content input, 
+    #upload-modal .modal-content select, 
+    #upload-modal .modal-content button {
         width: 100%;
         padding: 10px;
         margin: 10px 0;
@@ -157,12 +159,12 @@
     </div>
     <nav>
         <ul>
-                <li><a href="https://gdsgames.net/home" class="active">Home</a></li>
-                <li><a href="https://gdsgames.net/games">Games</a></li>
-                <li><a href="https://gdsgames.net/status">Server Status</a></li>
-                <li><a href="https://gdsgames.net/about">About</a></li>
-                <li><a href="https://gdsgames.net/values">Our Values</a></li>
-                <li><a href="https://gdsgames.net/authloginpage" class="sign-in">Sign In</a></li>
+            <li><a href="https://gdsgames.net/home" class="active">Home</a></li>
+            <li><a href="https://gdsgames.net/games">Games</a></li>
+            <li><a href="https://gdsgames.net/status">Server Status</a></li>
+            <li><a href="https://gdsgames.net/about">About</a></li>
+            <li><a href="https://gdsgames.net/values">Our Values</a></li>
+            <li><a href="https://gdsgames.net/authloginpage" class="sign-in">Sign In</a></li>
         </ul>
     </nav>
     <button id="upload-btn" style="
@@ -216,7 +218,6 @@ window.addEventListener('click', (event) => {
         uploadModal.style.display = 'none';
     }
 });
-
 document.getElementById('upload-form').addEventListener('submit', async (e) => {
     e.preventDefault();
 
