@@ -1,74 +1,8 @@
 [
     {
         "author": "Molly",
-        "text": "Does this work? 🤔",
-        "media": "https://cdn.discordapp.com/attachments/1127301565221449870/1306411677687742474/IMG_2955.png?ex=673e7b2f&is=673d29af&hm=1187c7152c981c06d124c6d49c669351523cd972ea5db5bd1aca518266cd7803&",
+        "text": "All posts were removed because the data kept deleting itself... I will be working on trying to fix this and actually have it so you can upload media instead of using media links",
+        "media": "https://gdsgames.net/API/CDNUserMedia/robotzuckerberg.png",
         "mediaType": "image"
     },
-    {
-        "author": "Molly",
-        "text": "Reporting does not work yet so if you see a bad post let me know and I can try help get it removed :)",
-        "media": "",
-        "mediaType": "video"
-    },
-    {
-        "author": "hugh",
-        "text": "Well well well. Why do I have the privileges to post?",
-        "media": "https://cdn.discordapp.com/attachments/1127301565221449870/1308664242303537162/44A7F747-A45A-4B01-9D8B-A284BECB2509.png?ex=673ec40d&is=673d728d&hm=be6082fc6856545151e3b675b7b5ccb4ff340a30579c49e6db461198bb4dc65f&",
-        "mediaType": "image"
-    },
-    {
-        "author": "Wedgiebrodude",
-        "text": "Wedgie!!!",
-        "media": "https://cdn.discordapp.com/attachments/1182464955946110997/1308404027297628201/image.png?ex=673fcbf5&is=673e7a75&hm=9aec12ebd33a4e1dcba8ced057e89a46980024b95d23903fdaeeb59cbafee2d4&",
-        "mediaType": "image"
-    },
-    {
-        "author": "Hugh",
-        "text": "Post was removed for violating Code of Conduct on: Politics",
-        "media": "https://gdsgames.net/data/contentdeleted.png",
-        "mediaType": "image"
-    },
-    {
-        "author": "Gordon Freeman",
-        "text": "Gordon Freeman",
-        "media": "https://cdn.discordapp.com/attachments/1240431110207438929/1309176355862351922/what-did-gordon-mean-by-this-v0-dvx93unfjoob1.png?ex=6740a0fe&is=673f4f7e&hm=a4882ebf6b7efc848f7ffcb1b4bc9507709b707f22e1a34a14fcd1838646bcbc&",
-        "mediaType": "image"
-    },
-    {
-        "author": "Dreamybull",
-        "text": "Pop me! Pop me! Pop me! Pop me! Pop me! Pop me! Pop me! Pop me! Pop me! Pop me! Pop me!",
-        "media": "https://cdn.discordapp.com/attachments/1208564893767180341/1309198282316054538/Video-813.mov?ex=6740b56a&is=673f63ea&hm=6ecc6909e5e175098157f3093146f0e15e70efa9a23c3c80d24c409a1e612cb6&",
-        "mediaType": "video"
-    },
-    {
-        "author": "Name Removed",
-        "text": "Post was removed for violating Code of Conduct on: Discrimination (Racism)",
-        "media": "",
-        "mediaType": "image"
-    },
-    {
-        "author": "Molly",
-        "text": "Santa is a FREAK!!!",
-        "media": "https://cdn.discordapp.com/attachments/1208564893767180341/1304456806260539403/snapchat.png?ex=674141d2&is=673ff052&hm=3b00df15f84189870de9c92b4f530b0ce767257c925267e35be10bfb75242718&",
-        "mediaType": "image"
-    },
-    {
-        "author": "000",
-        "text": "Post was removed for violating Code of Conduct on: Sexual Content (Hard NSFW)",
-        "media": "https://gdsgames.net/data/contentdeleted.png",
-        "mediaType": "image"
-    },
-    {
-        "author": "000",
-        "text": "Post was removed for violating Code of Conduct on: Self harm",
-        "media": "",
-        "mediaType": "image"
-    },
-    {
-        "author": "cornyassnigga",
-        "text": "WHERE!?!?",
-        "media": "https://cdn.discordapp.com/attachments/1208564893767180341/1309792773280497694/copy_F71CDB73-78C6-49F7-AE13-158DD7541D55.MOV?ex=6742df13&is=67418d93&hm=f323a3d7f74c3de3a02e2dc5bca63ff8af7544d2f9ef05919f02b2ca3dafdbd4&",
-        "mediaType": "video"
-    }
 ]
