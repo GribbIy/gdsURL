@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GDSAvatarClothingUpload</title>
+    <title>GDS Avatar Clothing Upload</title>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -34,7 +34,7 @@
             margin-top: 15px;
             color: #dcdcdc;
         }
-        input[type="file"] {
+        input[type="file"], select {
             display: block;
             margin: 10px auto;
             padding: 10px;
@@ -93,10 +93,22 @@
         <h2>Upload GDS Clothing Item</h2>
         <div class="info-section">
             <h3>Important Information:</h3>
-            <p>Please ensure that your mesh file is in either <strong>.obj</strong> or <strong>.fbx</strong> format, and your texture file is in <strong>.png</strong>, <strong>.jpg</strong>, or <strong>.jpeg</strong> format. Maximum file size is 50MB. Your avatar item can be accesed by anyone with a GDS avatar after the moderation process.</p>
-            <p>By uploading your item you allow all clothing items will be reviewed before being added to the GDS Avatar API. This process may take up to 48 hours.</p>
+            <p>Please ensure that your mesh file has a full working skeleton no matter what it is and also has either <strong>.obj</strong> or <strong>.fbx</strong> format, and your texture file is in <strong>.png</strong>, <strong>.jpg</strong>, or <strong>.jpeg</strong> format. Maximum file size is 50MB. Your avatar item can be accessed by anyone with a GDS avatar after the moderation process.</p>
+            <p>By uploading your item, you agree that all clothing items will be reviewed before being added to the GDS Avatar API. This process may take up to 48 hours.</p>
         </div>
         <form id="uploadForm" onsubmit="return handleSubmit()">
+            <label for="clothingType">Select Clothing Type:</label>
+            <select id="clothingType" required>
+                <option value="" disabled selected>Select a clothing item to upload</option>
+                <option value="Shirt">Shirt</option>
+                <option value="Pants">Pants</option>
+                <option value="Shoes">Shoes</option>
+                <option value="Hat">Hat</option>
+                <option value="Jacket">Jacket</option>
+                <option value="Avatar Type">AvatarType</option>
+                <option value="Piercings">Piercings</option>
+            </select>
+            
             <label for="meshFile">Upload Mesh File:</label>
             <input type="file" id="meshFile" accept=".obj, .fbx" required>
             
@@ -111,7 +123,12 @@
 
     <script>
         function handleSubmit() {
-            alert('Your GDS Clothing item is now under review.');
+            var clothingType = document.getElementById('clothingType').value;
+            if (!clothingType) {
+                alert('Please select a clothing type.');
+                return false;
+            }
+            alert('Your ' + clothingType + ' is now under review.');
             return false;
         }
     </script>
