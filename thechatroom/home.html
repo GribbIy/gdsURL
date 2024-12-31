@@ -1,47 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Chat Room</title>
-<link rel="stylesheet" href="homestyle.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Chat Room</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Merriweather', serif;
+            color: #ffffff;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #000000, #1a1a1a 40%, #111111 60%, #000000);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: #111111;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .logo h1 {
+            color: #ffffff;
+            font-size: 30px;
+            font-weight: 700;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 18px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            color: #ffffff;
+            transform: scale(1.05);
+        }
+
+        nav ul li a.sign-in {
+            background-color: #222222;
+            padding: 12px 25px;
+            border-radius: 5px;
+            border: 2px solid #ffffff;
+        }
+
+        nav ul li a.sign-in:hover {
+            background-color: #333333;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 30px;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .hero {
+            height: 100vh;
+            background: url('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXY0eTJ1ZWF3b3d0OG0yeG5oeXd4Z3VqejZpZ2Zsam1saHlldTlldyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o85xqkimyAQIwcBKE/giphy.gif') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 100px;
+            background-color: #111111;
+            position: relative;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: #ffffff;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .hero-title {
+            font-size: 60px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .hero-subtitle {
+            font-size: 22px;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+
+        .cta-button {
+            background-color: #111111;
+            color: #ffffff;
+            padding: 18px 35px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 22px;
+            border: 2px solid #ffffff;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .cta-button:hover {
+            background-color: #333333;
+            transform: scale(1.1);
+        }
+
+        #about {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #0a0a0a;
+            color: #ffffff;
+        }
+
+        #about h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        #about p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        footer {
+            background-color: #111111;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 40px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .cta-button {
+                font-size: 20px;
+                padding: 12px 25px;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                position: fixed;
+                top: 60px;
+                right: 0;
+                width: 100%;
+                background: #111111;
+                display: none;
+                padding: 20px 0;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+        }
+    </style>
 </head>
 <body>
-<header>
-    <div class="logo">
-        <h1>The Chat Room</h1>
-    </div>
-    <nav>
-        <ul>
-            <li><a href="0">About</a></li>
-            <li><a href="0">Stories</a></li>
-            <li><a href="https://discord.gg/XAcbGDpm4f">Join us</a></li>
-            <li><a href="0" class="sign-in">Sign into GDS account</a></li>
-        </ul>
-        <div class="menu-icon">&#9776;</div>
-    </nav>
-</header>
-<section class="hero">
-    <div class="hero-content">
-        <h1 class="hero-title">The Chat Room</h1>
-        <p class="hero-subtitle">Hello and welcome to the official The Chat Room website also known as www.TheChatRoom.com this website is for server updates of The Chat Room discord server story releases and updates and news in the server</p>
-        <a href="#about" class="cta-button">Learn More</a>
-    </div>
-</section>
-<section id="about">
-    <h2>About Us</h2>
-    <p>Place holder</p>
-</section>
-<footer>
-    <p>Developed by GDS</p>
-</footer>
-<script>
-    const menuIcon = document.querySelector('.menu-icon');
-    const navLinks = document.querySelector('nav ul');
-    menuIcon.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
-</script>
+    <header>
+        <div class="logo">
+            <h1>The Chat Room</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="https://gdsgames.net/about">About</a></li>
+                <li><a href="https://gdsgames.net/nopermission">Stories</a></li>
+                <li><a href="https://discord.gg/XAcbGDpm4f">Join us</a></li>
+                <li><a href="https://gdsgames.net/authloginpage" class="sign-in">Sign into GDS account</a></li>
+            </ul>
+            <div class="menu-icon">&#9776;</div>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">The Chat Room</h1>
+            <p class="hero-subtitle">Hello and welcome to the official The Chat Room website.</p>
+            <a href="#about" class="cta-button">Read dis :P</a>
+        </div>
+    </section>
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Place holder</p>
+    </section>
+    <footer>
+        <p>Developed by GDS</p>
+    </footer>
+    <script>
+        const menuIcon = document.querySelector('.menu-icon');
+        const navLinks = document.querySelector('nav ul');
+        menuIcon.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
