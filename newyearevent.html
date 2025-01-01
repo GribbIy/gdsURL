@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New year time :P</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #000428, #004e92);
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+        h1 {
+            font-size: 4rem;
+            margin: 0;
+            text-shadow: 0 0 20px #ff0;
+            animation: glow 2s infinite alternate;
+        }
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #ff0;
+            }
+            to {
+                text-shadow: 0 0 30px #ff0;
+            }
+        }
+        .countdown {
+            font-size: 2rem;
+            margin: 20px 0;
+        }
+        .button {
+            background: #ff4081;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .fireworks {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎆 Happy New Year 2025! 🎆</h1>
+        <div class="countdown" id="countdown"></div>
+        <button class="button" onclick="launchFireworks()">🎇 Launch Fireworks 🎇</button>
+    </div>
+    <canvas class="fireworks" id="fireworks"></canvas>
+
+    <script>
+        const countdown = document.getElementById('countdown');
+        const targetDate = new Date('2025-01-01T00:00:00');
+        function updateCountdown() {
+            const now = new Date();
+            const difference = targetDate - now;
+
+            if (difference <= 0) {
+                countdown.textContent = '🎆 Happy New Year 2025! 🎆';
+                return;
+            }
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((difference / 1000 / 60) % 60);
+            const seconds = Math.floor((difference / 1000) % 60);
+
+            countdown.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        const canvas = document.getElementById('fireworks');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const fireworks = [];
+
+        function launchFireworks() {
+            fireworks.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * 3 + 2,
+                color: `hsl(${Math.random() * 360}, 100%, 50%)`,
+                life: 100
+            });
+        }
+
+        function drawFireworks() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            fireworks.forEach((fw, index) => {
+                ctx.beginPath();
+                ctx.arc(fw.x, fw.y, fw.radius, 0, Math.PI * 2);
+                ctx.fillStyle = fw.color;
+                ctx.fill();
+                fw.life--;
+                fw.y -= 2;
+                if (fw.life <= 0) fireworks.splice(index, 1);
+            });
+            requestAnimationFrame(drawFireworks);
+        }
+        drawFireworks();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
