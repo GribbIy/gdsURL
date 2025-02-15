@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GDS - Maintenance</title>
+    <title>Fit Guy - Maintenance</title>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(to bottom, #000033, #000066 40%, #000066 60%, #000033);
+            background-color: #000;
+            background: radial-gradient(circle, rgba(255, 192, 203, 0.1) 0%, rgba(0, 0, 0, 1) 100%);
             font-family: 'Raleway', sans-serif;
             color: #fff;
             display: flex;
@@ -15,39 +16,33 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            position: relative;
             text-align: center;
         }
-        .maintenance-container {
-            width: 90%;
-            max-width: 600px;
-            padding: 20px;
-            background-color: rgba(0, 0, 51, 0.8);
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        h1, p {
+            position: relative;
+            animation: float 5s ease-in-out infinite;
         }
-        .maintenance-container h1 {
-            color: #b0c4de;
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        h1 {
+            color: #ff99cc;
             font-size: 36px;
             margin-bottom: 20px;
         }
-        .maintenance-container p {
-            color: #dcdcdc; 
+        p {
+            color: #fff;
             font-size: 18px;
             margin-bottom: 30px;
-        }
-        .icon {
-            font-size: 60px;
-            color: #b0c4de;
-            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="maintenance-container">
-        <div class="icon">🚧</div>
-        <h1>We'll be right back!</h1>
-        <h1>곧 돌아오겠습니다!</h1>
+    <div>
+        <h1>Until we meet again...</h1>
+        <h1>또 만날 때까지...</h1>
         <p>We are making GDS Games... Better!</p>
         <p>우리는 GDS 게임을... 더 좋게 만들고 있어요!</p>
     </div>
